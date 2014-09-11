@@ -1,0 +1,87 @@
+[
+    {
+        "name": "smarty/smarty",
+        "version": "v3.1.19",
+        "version_normalized": "3.1.19.0",
+        "source": {
+            "type": "svn",
+            "url": "http://smarty-php.googlecode.com/svn",
+            "reference": "/tags/v3.1.19/@4867"
+        },
+        "require": {
+            "php": ">=5.2"
+        },
+        "time": "2014-08-07 20:42:11",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "classmap": [
+                "distribution/libs/Smarty.class.php",
+                "distribution/libs/SmartyBC.class.php",
+                "distribution/libs/sysplugins/smarty_security.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "LGPL-3.0"
+        ],
+        "authors": [
+            {
+                "name": "Monte Ohrt",
+                "email": "monte@ohrt.com"
+            },
+            {
+                "name": "Uwe Tews",
+                "email": "uwe.tews@googlemail.com"
+            },
+            {
+                "name": "Rodney Rehm",
+                "email": "rodney.rehm@medialize.de"
+            }
+        ],
+        "description": "Smarty - the compiling PHP template engine",
+        "homepage": "http://www.smarty.net",
+        "keywords": [
+            "templating"
+        ]
+    },
+    {
+        "name": "jowy/rest-client",
+        "version": "v0.1.2",
+        "version_normalized": "0.1.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Atriedes/rest-client.git",
+            "reference": "dcf8b070bc4e5d1419e919791a8a42bc403ef95d"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Atriedes/rest-client/zipball/dcf8b070bc4e5d1419e919791a8a42bc403ef95d",
+            "reference": "dcf8b070bc4e5d1419e919791a8a42bc403ef95d",
+            "shasum": ""
+        },
+        "require": {
+            "ext-curl": "*",
+            "php": ">=5.3.0"
+        },
+        "time": "2014-02-17 06:16:22",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "RestClient": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Prasetyo Wicaksono",
+                "email": "prasetyo@nanomit.es"
+            }
+        ],
+        "description": "PHP 5.3+ Rest Client"
+    }
+]

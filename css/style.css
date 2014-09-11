@@ -1,0 +1,541 @@
+ul.tabs_table {
+    border-bottom: 1px solid #E5E5E5;
+    padding: 0;
+    margin: 0;
+}
+
+ul.tabs_table li {
+    display: block;
+    float: left;
+    margin: 0 2px -1px 0;
+}
+
+ul.tabs_table li a {
+    display: block;
+    font-size: 13px;
+    padding: 4px 5px;
+    color: #0263B0;
+    text-decoration: none;
+    border: 1px solid transparent;
+    border-radius: 4px 4px 0 0;
+}
+
+ul.tabs_table li a:hover {
+    color: #3283D0;
+    background: #FAFAFA;
+    border-color: #E5E5E5;
+    border-bottom-color: transparent;
+}
+
+ul.tabs_table li.active a {
+    background: #fff;
+    border: 1px solid #E5E5E5;
+    border-bottom-color: transparent;
+    cursor: default;
+}
+
+ul.tabs_table li.active a {
+    color: #000000;
+}
+
+ul.tabs_common {
+    background: transparent url(http://admin.abcp.ru/common.images/tabs_bg_common.gif) bottom repeat-x;
+    margin: 0 0 20px 0;
+    padding: 0;
+}
+
+ul.tabs_common li {
+    background: none;
+    padding-left: 0;
+    padding-bottom: 0;
+    border: 1px solid #D7D7D7;
+    display: block;
+    float: left;
+    margin: 0 5px 0 0;
+}
+
+ul.tabs_common li a {
+    background-color: #F7F7F7;
+    border-top: 1px solid #FFFFFF;
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 10px 5px 10px;
+}
+
+ul.tabs_common li a:hover {
+    background-color: #F0F0F0;
+    color: #000000;
+    text-decoration: none;
+}
+
+ul.tabs_common li.active {
+    border-bottom-color: #FFFFFF;
+}
+
+ul.tabs_common li.active a {
+    color: #000000;
+    background-color: #FFFFFF;
+}
+
+#tecdocArticleInfoTabs {
+    border: none;
+    padding: 0;
+}
+
+.TecDocMain {
+    margin: auto;
+    max-width: 1260px;
+    min-width: 800px;
+    background: #fff;
+    position: relative;
+    padding: 10px 15px;
+}
+
+.TecDocMain * {
+    font-family: Arial, Sans-serif;
+}
+
+.tecdocTop {
+    background: #FAFAFA;
+    padding: 10px;
+    margin: 10px 0 15px;
+    border: 1px solid #E5E5E5;
+}
+
+.TecDocTitle {
+    background: #fff;
+    padding: 0 0 10px 0;
+    font-size: 13px;
+    color: #454545;
+}
+
+span.TecDocCrumb {
+    font-size: 13px;
+    color: #454545;
+}
+
+a.TecDocCrumb {
+    font-size: 13px;
+    color: #0263B0;
+    text-decoration: underline;
+}
+
+a.TecDocCrumb:hover {
+    color: #3283D0;
+}
+
+#searchTecdoc {
+    height: 20px;
+    border: 1px solid #CECECE;
+    width: 250px;
+    padding: 2px 5px;
+    font: normal 13px/20px 'arial';
+    color: #454545;
+}
+
+#searchTecdoc.jqueryPlaceholder {
+    font: normal 13px/20px 'arial';
+    color: #777 !important;
+}
+
+/*Таблица tecdoc*/
+
+.TecDocCont {
+    clear: both;
+    border-top: 1px solid #E5E5E5;
+}
+
+.TecDocCont .listLine {
+    clear: both;
+    float: left;
+    width: 100%;
+    border-bottom: 1px solid #E5E5E5;
+    position: relative;
+}
+
+.TecDocCont .listLine:last-child {
+    border: none;
+}
+
+.listLine .wordBold {
+    float: left;
+    padding: 5px 15px;
+    font: bold 13px/13px 'arial';
+}
+
+.listLine .brandsList {
+    background: #F0F0F0;
+}
+
+.listLine .brandsList ul {
+    margin: 0 0 0 40px;
+    padding: 5px 0 5px 10px;
+    border-left: 1px solid #E5E5E5;
+    background: #fff;
+}
+
+.listLine .brandsList ul:hover {
+    background: #FAFAFA;
+}
+
+.listLine .brandsList ul li {
+    display: inline-block;
+    list-style: none;
+    padding: 3px 5px;
+    width: 167px;
+    word-break: break-all;
+    vertical-align: middle;
+}
+
+.brandsList ul li a {
+    color: #0263B0;
+    text-decoration: underline;
+    font: normal 12px/12px 'arial';
+}
+
+.brandsList ul li a:hover {
+    color: #3283D0;
+    text-decoration: underline;
+}
+
+/* TecDoc второй уровень поиска (Модели) */
+
+ul.TecDocModelTitle,
+ul.ulTecDocModels {
+    float: left;
+    clear: both;
+    display: table;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    list-style: none;
+    border-bottom: 1px solid #E5E5E5;
+}
+
+ul.TecDocModelTitle {
+    border-top: 1px solid #e5e5e5;
+    background-color: #F0F0F0;
+}
+
+ul.TecDocModelTitle li {
+    font: bold 13px/14px 'Arial' !important;
+}
+
+ul.ulTecDocModels li.couple:hover {
+    background: #FAFAFA;
+}
+
+ul.TecDocModelTitle li.couple,
+ul.ulTecDocModels li.couple {
+    font: normal 12px/14px 'Arial';
+    color: #454545;
+    display: inline-block;
+    vertical-align: middle;
+    width: 30%;
+    padding: 0.5% 1.5%;
+    margin-right: -1px;
+}
+
+ul.TecDocModelTitle li.couple {
+    padding: 0.7% 1.5%;
+}
+
+ul.TecDocModelTitle li .TecDocModel,
+ul.ulTecDocModels li .TecDocModel {
+    float: left;
+    width: 56%;
+}
+
+ul.ulTecDocModels .TecDocModel a {
+    color: #0263B0;
+    text-decoration: underline;
+    font: normal 12px/16px 'arial';
+}
+
+ul.TecDocModelTitle li .TecDocYear,
+ul.ulTecDocModels li .TecDocYear {
+    float: left;
+    width: 44%;
+    text-align: right;
+}
+
+/* КОНЕЦ Второго уровня поиска (Модели) */
+
+.TecDocTable {
+    border-collapse: collapse;
+    border: 0;
+    border-spacing: 0;
+    width: 100%;
+    max-width: 1260px;
+    background: #fff;
+}
+
+.TecDocTable tr {
+    background: #fff;
+}
+
+.TecDocTable tr.trSearchEven {
+    background: #FAFAFA;
+}
+
+.TecDocTable td,
+.TecDocTable th {
+    padding: 5px 10px;
+    height: 14px;
+    text-align: left;
+    font: 12px/14px 'arial';
+    color: #454545;
+    border-top: 1px solid #E5E5E5;
+    vertical-align: middle;
+}
+
+.TecDocTable th {
+    text-align: left;
+    background-color: #F0F0F0;
+    font-weight: bold;
+    font-size: 13px;
+    padding: 7px 10px;
+}
+
+.TecDocTable td img {
+    vertical-align: middle;
+    border: 0;
+    outline: none
+}
+
+.TecDocTable .TecDocInfo {
+    width: 15px;
+}
+
+.TecDocTable .TecDocImg {
+    max-width: 150px;
+    width: 0;
+    text-align: center;
+    padding: 5px 0;
+}
+
+.TecDocTable .tecdocBuy {
+    width: 100px;
+    white-space: nowrap;
+}
+
+.TecDocTable .TecDocImg img {
+    max-width: 150px;
+    max-height: 120px;
+}
+
+.TecDocTable td.TecDocYear,
+.TecDocTable th.TecDocYear {
+    border-right: 20px solid #FFF;
+    min-width: 100px;
+}
+
+.TecDocTable td.TecDocYear:last-child,
+.TecDocTable th.TecDocYear:last-child {
+    border-right: none;
+}
+
+.TecDocTable td a {
+    color: #0263B0;
+    text-decoration: underline;
+    font: normal 12px/16px 'arial';
+}
+
+.TecDocTable td a:hover {
+    color: #3283D0;
+    text-decoration: underline;
+}
+
+.TecDocTable td.tecdocCt {
+    vertical-align: top;
+    width: 230px;
+    background: #FAFAFA;
+    padding-left: 20px;
+}
+
+.TecDocTable td.tecdocCt span {
+    font: bold 13px/13px 'arial';
+    color: #454545;
+    display: block;
+    margin: 10px 0;
+}
+
+body.searchResultInfo {
+    background: #fff;
+    margin: 10px 0;
+}
+
+/*Конец таблицы tecdoc*/
+
+.list {
+    width: 100%;
+    padding: 10px 0 15px 0;
+}
+
+.list a {
+    font: 11px/14px Tahoma, Arial, Helvetica, sans-serif;
+    color: #047;
+}
+
+.list img {
+    border: none;
+}
+
+.list ul {
+    margin: 0;
+    padding: 0;
+}
+
+.list-clear_top {
+    width: 100%;
+    padding: 0 0 25px 0;
+}
+
+.list-clear_bottom {
+    width: 100%;
+    padding: 10px 0 0 0;
+}
+
+.list-header {
+    background: url(http://admin.abcp.ru/common.images/list-header.gif) no-repeat;
+    height: 22px;
+    overflow: hidden;
+}
+
+.list-header h4 {
+    width: 257px;
+    height: 21px;
+    font-size: 12px;
+    padding: 0;
+    margin: 0;
+    float: left;
+}
+
+.list-header h4 a {
+    font-size: 12px;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: bold;
+    float: left;
+    margin: 3px 0 0 35px;
+}
+
+.list-header ul {
+    float: right;
+    height: 21px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.list-header ul li {
+    float: left;
+    height: 21px;
+    line-height: 21px;
+    padding: 0 5px;
+}
+
+.list-header ul li a {
+    background: url(http://admin.abcp.ru/common.images/pointer.gif) no-repeat 100% 60%;
+    padding: 0 10px 0 0;
+}
+
+.list-header-clear_top {
+    height: 1px;
+    overflow: hidden;
+}
+
+.list-content {
+    background: #ECE6E3 url(http://admin.abcp.ru/common.images/list-content.gif) no-repeat 100% 100%;
+}
+
+.list-content-clear_bottom {
+    background: #ECE6E3;
+}
+
+.list-content-header {
+    background: url(http://admin.abcp.ru/common.images/list-content-bg.gif) no-repeat;
+}
+
+.top-r {
+    background: url(http://admin.abcp.ru/common.images/list-top-right.gif) no-repeat 100% 0;
+    height: 1%;
+    padding: 12px 0 19px 28px;
+    overflow: hidden;
+}
+
+.top-r-clear_top {
+    height: 1%;
+    padding: 12px 0 19px 28px;
+    overflow: hidden;
+}
+
+.list-column {
+    float: left;
+    width: 19.9%;
+    text-align: left;
+}
+
+.list-column ul {
+    width: 100%;
+    overflow: hidden;
+    list-style: none none;
+}
+
+.list-column ul li {
+    width: 100%;
+    float: left;
+    padding: 2px 0;
+}
+
+.list-column ul li a {
+    font-weight: bold;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.list-column ul li a:HOVER {
+    text-decoration: underline;
+}
+
+.tbl_s {
+}
+
+.tbl_s td {
+    padding: 2px;
+}
+
+.tbl_s_top {
+    font-size: 11px
+}
+
+.tbl_s_top span {
+}
+
+.tbl_s_top_line {
+    height: 1px;
+    background-color: #2F4E7A;
+}
+
+.tbl_s_bottom {
+    border-bottom: 3px solid #E9E9E9;
+}
+
+.tbl_s_bottom1 {
+    border-bottom: 1px solid #E9E9E9;
+    font-weight: bold;
+    font-size: 11px;
+}
+
+.tbl_s_right {
+    border-right: 1px solid #E9E9E9;
+}
+
+.tbl_s_selected {
+    background-color: #E9E9E9;
+}
+
+.cart_tr1_color {
+    background-color: #DDDFFF;
+}

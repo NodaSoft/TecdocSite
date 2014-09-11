@@ -1,0 +1,53 @@
+/*--------------------------------------------------|
+| dTree 2.05 | www.destroydrop.com/javascript/tree/ |
+|---------------------------------------------------|
+| Copyright (c) 2002-2003 Geir Landrц               |
+|--------------------------------------------------*/
+
+.dtree {
+    color: #454545;
+    font: 12px/18px 'arial';
+    white-space: nowrap;
+    width: 100%;
+}
+
+.dtree img {
+    border: 0;
+    vertical-align: middle;
+}
+
+.dTreeNode > img {
+    padding-right: 5px;
+}
+
+.dtree a.node,
+.dtree a.nodeSel {
+    color: #454545;
+    white-space: nowrap;
+    padding: 1px 2px 1px 0;
+    font: normal 12px/18px 'arial';
+    text-decoration: none;
+}
+
+.dtree a.node:hover, .dtree a.nodeSel:hover {
+    color: #333;
+    text-decoration: underline;
+}
+
+.dtree a.nodeSel {
+    background-color: #F0F0F0;
+}
+
+.dtree .clip {
+    overflow: hidden;
+}
+
+/****** МОИ КАТАЛОГИ *******/
+
+td.valignTop.catalogTree > .dtree {
+    padding-right: 35px; /* отступ от древа до таблицы */
+}
+
+td.valignTop.catalogTree > .dtree a.nodeSel {
+    background-color: #e8e8e8;
+}
