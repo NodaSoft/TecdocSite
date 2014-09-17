@@ -14,7 +14,8 @@ class TecDocApiClient
 	public function getManufacturers($carType = 0) {
 		$requestVars = array(
 			'userlogin' => TecDocApiConfig::USER_LOGIN,
-			'userpsw'   => TecDocApiConfig::USER_PSW
+			'userpsw'   => TecDocApiConfig::USER_PSW,
+			'userkey' => TecDocApiConfig::USER_KEY
 		);
 		if ($carType) {
 			$requestVars['carType'] = $carType;
@@ -33,6 +34,7 @@ class TecDocApiClient
 		$requestVars = array(
 			'userlogin'      => TecDocApiConfig::USER_LOGIN,
 			'userpsw'        => TecDocApiConfig::USER_PSW,
+			'userkey' => TecDocApiConfig::USER_KEY,
 			'manufacturerId' => $manufacturerId,
 			'modelId'        => $modelId
 		);
@@ -49,6 +51,7 @@ class TecDocApiClient
 		$requestVars = array(
 			'userlogin'      => TecDocApiConfig::USER_LOGIN,
 			'userpsw'        => TecDocApiConfig::USER_PSW,
+			'userkey' => TecDocApiConfig::USER_KEY,
 			'modificationId' => $modificationId
 		);
 		return $this->getResultsByGet($requestVars, 'tree');
@@ -63,8 +66,9 @@ class TecDocApiClient
 	 */
 	public function getArticles($modificationId, $categoryId) {
 		$requestVars = array(
-			'userlogin'      => TecDocApiConfig::USER_LOGIN,
-			'userpsw'        => TecDocApiConfig::USER_PSW,
+			'userlogin' => TecDocApiConfig::USER_LOGIN,
+			'userpsw' => TecDocApiConfig::USER_PSW,
+			'userkey' => TecDocApiConfig::USER_KEY,
 			'modificationId' => $modificationId,
 			'categoryId'     => $categoryId
 		);
@@ -81,6 +85,7 @@ class TecDocApiClient
 		$requestVars = array(
 			'userlogin'      => TecDocApiConfig::USER_LOGIN,
 			'userpsw'        => TecDocApiConfig::USER_PSW,
+			'userkey' => TecDocApiConfig::USER_KEY,
 			'manufacturerId' => $manufacturerId
 		);
 		return $this->getResultsByGet($requestVars, 'models');
@@ -96,6 +101,7 @@ class TecDocApiClient
 		$requestVars = array(
 			'userlogin' => TecDocApiConfig::USER_LOGIN,
 			'userpsw'   => TecDocApiConfig::USER_PSW,
+			'userkey' => TecDocApiConfig::USER_KEY,
 			'articleId' => $articleId
 		);
 		return $this->getResultsByGet($requestVars, 'articleInfo');
@@ -111,6 +117,7 @@ class TecDocApiClient
 		$requestVars = array(
 			'userlogin' => TecDocApiConfig::USER_LOGIN,
 			'userpsw'   => TecDocApiConfig::USER_PSW,
+			'userkey' => TecDocApiConfig::USER_KEY,
 			'articleId' => $articleId
 		);
 		return $this->getResultsByGet($requestVars, 'adaptability');
@@ -127,6 +134,7 @@ class TecDocApiClient
 		$requestVars = array(
 			'userlogin' => TecDocApiConfig::USER_LOGIN,
 			'userpsw'   => TecDocApiConfig::USER_PSW,
+			'userkey' => TecDocApiConfig::USER_KEY,
 			'number'    => $number,
 			'type'      => $type
 		);
