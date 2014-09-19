@@ -6,7 +6,7 @@
 		<th>Фирма</th>
 		<th>Код детали</th>
 		<th>Описание</th>
-		<th colspan="2"></th>
+		<th colspan="3"></th>
 	</tr>
 	{foreach from=$data.articles item="article"}
 		<tr>
@@ -28,6 +28,9 @@
 			</td>
 			<td>
 				<a href="/?analogs&number={$article->number|urlencode}">Аналоги</a>
+			</td>
+			<td>
+				<a href="/?pnumber={$article->number|urlencode}&pbrandname={$article->brandName|urlencode}">Цена</a>
 			</td>
 		</tr>
 	{/foreach}
