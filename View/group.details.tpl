@@ -27,10 +27,10 @@
 				<a href="/?adaptability&articleId={$article->id}">Применимость</a>
 			</td>
 			<td>
-				<a href="/?analogs&number={$article->number|urlencode}">Аналоги</a>
+				<a href="/?analogs&number={$article->number|escape:'url'}">Аналоги</a>
 			</td>
 			<td>
-				<a href="/?pnumber={$article->number|urlencode}&pbrandname={$article->brandName|urlencode}">Цена</a>
+				<a href="http://4mycar.ru/parts/{$article->brandName|escape:'url'}/{$article->number|escape:'url'}">Цена</a>
 			</td>
 		</tr>
 	{/foreach}
