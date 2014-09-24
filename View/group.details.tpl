@@ -30,7 +30,7 @@
 				<a href="/?analogs&number={$article->number|escape:'url'}">Аналоги</a>
 			</td>
 			<td>
-				<a href="http://4mycar.ru/parts/{$article->brandName|escape:'url'}/{$article->number|escape:'url'}">Цена</a>
+				<a target="_blank" href="http://4mycar.ru/parts/{$article->brandName|escape:'url'}/{$article->number|escape:'url'}">Цена</a>
 			</td>
 		</tr>
 	{/foreach}
