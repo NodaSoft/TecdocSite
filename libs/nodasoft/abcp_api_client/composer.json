@@ -1,0 +1,24 @@
+{
+	"name": "nodasoft/abcp_api_client",
+	"type": "library",
+	"description": "Rest клиент для ABCP API",
+	"keywords": ["abcp","nodasoft", "api", "restfull client"],
+	"homepage": "http://github.com/NodaSoftLtd/ABCPApiClient",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Anton Kochnev",
+			"email": "flk@nodasoft.com",
+			"homepage": "http://abcp.ru",
+			"role": "Developer"
+		}
+	],
+	"require": {
+		"php": ">=5.3.10"
+	},
+	"autoload": {
+		"psr-4": {
+			"NS\\ABCPApi\\": "src/"
+		}
+	}
+}
