@@ -23,4 +23,5 @@ spl_autoload_register(function ($className) {
 /**
  * vendors
  */
-require_once 'libs/autoload.php';
+$loader = require_once 'libs/autoload.php';
+//$loader->register();

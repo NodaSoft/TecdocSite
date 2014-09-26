@@ -6,4 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'NS\\ABCPApi\\' => array($vendorDir . '/nodasoft/abcp_api_client/src'),
 );

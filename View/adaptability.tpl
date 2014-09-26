@@ -1,5 +1,5 @@
 <h2>Применимость</h2>
-{if $data.adaptabilities}
+{if $data.adaptability}
 	<table class="TecDocTable">
 		<tr>
 			<th>Модель</th>
@@ -11,11 +11,10 @@
 			<th>PS<</th>
 			<th>Топливо</th>
 		</tr>
-		{foreach from=$data.adaptabilities item="adaptability"}
+		{foreach from=$data.adaptability item="adaptability"}
 			<tr>
 				<td>{$adaptability->name}</td>
-				<td>{$adaptability->yearFrom|substr:4}/{$adaptability->yearFrom|substr:0:4}
-					- {$adaptability->yearTo|substr:4}/{$adaptability->yearTo|substr:0:4}</td>
+				<td>{$adaptability->yearFrom->format('m/Y')} - {if $adaptability->yearTo}{$adaptability->yearTo->format('m/Y')}{/if}</td>
 				<td>{$adaptability->motorCodes}</td>
 				<td>{$adaptability->constructionType}</td>
 				<td>{$adaptability->cylinderCapacityCcm}</td>

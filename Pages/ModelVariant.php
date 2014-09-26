@@ -1,7 +1,7 @@
 <?php
 namespace NS\TecDocSite\Pages;
 
-use NS\TecDocSite\Common\TecDocApiClient;
+use NS\ABCPApi\RestApiClients\TecDoc;
 use NS\TecDocSite\Common\TecDocApiConfig;
 use NS\TecDocSite\Common\View;
 use NS\TecDocSite\Interfaces\PageInterface;
@@ -14,9 +14,12 @@ class ModelVariant implements PageInterface
 	 * @return string
 	 */
 	public function getHtml() {
-		$restClient = new TecDocApiClient(array(TecDocApiConfig::HOST));
+		$tecDocRestClient = new TecDoc();
+		$tecDocRestClient->setUserKey(TecDocApiConfig::USER_KEY)
+			->setUserLogin(TecDocApiConfig::USER_LOGIN)
+			->setUserPsw(TecDocApiConfig::USER_PSW);
 		$modificationId = $_GET['modelVariant'];
-		$tree = $restClient->getModelVariant($modificationId);
+		$tree = $tecDocRestClient->getModelVariant($modificationId);
 		$contentTemplateData = array(
 			'tree' => $tree,
 			'url'  => "/?man={$_REQUEST['man']}&model={$_REQUEST['model']}&modelVariant={$_REQUEST['modelVariant']}&group="

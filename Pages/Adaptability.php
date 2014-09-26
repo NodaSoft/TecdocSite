@@ -1,7 +1,7 @@
 <?php
 namespace NS\TecDocSite\Pages;
 
-use NS\TecDocSite\Common\TecDocApiClient;
+use NS\ABCPApi\RestApiClients\TecDoc;
 use NS\TecDocSite\Common\TecDocApiConfig;
 use NS\TecDocSite\Common\View;
 use NS\TecDocSite\Interfaces\PageInterface;
@@ -14,11 +14,14 @@ class Adaptability implements PageInterface
 	 * @return string
 	 */
 	public function getHtml() {
-		$restClient = new TecDocApiClient(array(TecDocApiConfig::HOST));
+		$tecDocRestClient = new TecDoc();
+		$tecDocRestClient->setUserKey(TecDocApiConfig::USER_KEY)
+			->setUserLogin(TecDocApiConfig::USER_LOGIN)
+			->setUserPsw(TecDocApiConfig::USER_PSW);
 		$articleId = $_GET['articleId'];
-		$adaptabilities = $restClient->getAdaptability($articleId);
+		$adaptability = $tecDocRestClient->getAdaptability($articleId);
 		$contentTemplateData = array(
-			'adaptabilities' => $adaptabilities
+			'adaptability' => $adaptability
 		);
 		$content = View::deploy('adaptability.tpl', $contentTemplateData);
 		$templateData = array('content' => $content);

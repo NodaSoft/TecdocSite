@@ -4,30 +4,29 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7732870c4dee16f6cd9b9b1b7bd43691",
+    "hash": "47228447ca721844e98c5d3f637be069",
     "packages": [
         {
-            "name": "jowy/rest-client",
-            "version": "v0.1.2",
+            "name": "nodasoft/abcp_api_client",
+            "version": "1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Atriedes/rest-client.git",
-                "reference": "dcf8b070bc4e5d1419e919791a8a42bc403ef95d"
+                "url": "https://github.com/NodaSoftLtd/ABCPApiClient.git",
+                "reference": "d69e39517a7105598ba98b19b5fee04874b4239e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Atriedes/rest-client/zipball/dcf8b070bc4e5d1419e919791a8a42bc403ef95d",
-                "reference": "dcf8b070bc4e5d1419e919791a8a42bc403ef95d",
+                "url": "https://api.github.com/repos/NodaSoftLtd/ABCPApiClient/zipball/d69e39517a7105598ba98b19b5fee04874b4239e",
+                "reference": "d69e39517a7105598ba98b19b5fee04874b4239e",
                 "shasum": ""
             },
             "require": {
-                "ext-curl": "*",
-                "php": ">=5.3.0"
+                "php": ">=5.3.10"
             },
             "type": "library",
             "autoload": {
-                "psr-0": {
-                    "RestClient": "src/"
+                "psr-4": {
+                    "NS\\ABCPApi\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -36,12 +35,21 @@
             ],
             "authors": [
                 {
-                    "name": "Prasetyo Wicaksono",
-                    "email": "prasetyo@nanomit.es"
+                    "name": "Anton Kochnev",
+                    "email": "flk@nodasoft.com",
+                    "homepage": "http://abcp.ru",
+                    "role": "Developer"
                 }
             ],
-            "description": "PHP 5.3+ Rest Client",
-            "time": "2014-02-17 06:16:22"
+            "description": "Rest клиент для ABCP API",
+            "homepage": "http://github.com/NodaSoftLtd/ABCPApiClient",
+            "keywords": [
+                "abcp",
+                "api",
+                "nodasoft",
+                "restfull client"
+            ],
+            "time": "2014-09-26 10:46:25"
         },
         {
             "name": "smarty/smarty",

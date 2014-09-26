@@ -13,6 +13,6 @@
 	],
 	"require": {
 		"smarty/smarty": "v3.1.19",
-		"jowy/rest-client": "v0.1.2"
+		"nodasoft/abcp_api_client": "1.0"
 	}
 }

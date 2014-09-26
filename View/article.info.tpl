@@ -9,9 +9,9 @@
 					<th>Наименование</th>
 				</tr>
 				<tr>
-					<td>{$data.articleInfo->directArticle->brandName}</td>
-					<td>{$data.articleInfo->directArticle->articleNo}</td>
-					<td>{$data.articleInfo->directArticle->articleName}</td>
+					<td>{$data.articleInfo->brandName}</td>
+					<td>{$data.articleInfo->number}</td>
+					<td>{$data.articleInfo->description}</td>
 				</tr>
 			</table>
 			<br/>
@@ -19,10 +19,10 @@
 				<tr>
 					<th colspan="2">Характеристики</th>
 				</tr>
-				{foreach from=$data.articleInfo->articleAttributes item="characteristic"}
+				{foreach from=$data.articleInfo->attributes item="characteristic"}
 					<tr>
-						<td>{$characteristic->attrName}</td>
-						<td>{$characteristic->attrValue} {$characteristic->attrUnit}</td>
+						<td>{$characteristic->name}</td>
+						<td>{$characteristic->value} {$characteristic->unit}</td>
 					</tr>
 				{/foreach}
 			</table>
@@ -41,11 +41,9 @@
 			<br/>
 		</td>
 		<td>
-			{foreach from=$data.articleInfo->documentData item=image}
-			{if !empty($image->docData)}
-				<img src="data:{$image->docFileType};base64,{$image->docData}"/>
+			{if !empty($data.articleInfo->documents->data)}
+				<img src="data:{$data.articleInfo->documents->fileType};base64,{$data.articleInfo->documents->data}"/>
 			{/if}
-			{/foreach}
 		</td>
 	</tr>
 </table>
