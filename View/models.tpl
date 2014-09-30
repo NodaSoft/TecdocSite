@@ -27,7 +27,7 @@
 								<a href="/?man={$data.man}&model={$data.models[$i+$k]->id}">{$data.models[$i+$k]->name}</a>
 							</div>
 							<div class="TecDocYear">
-								{$data.models[$i+$k]->yearFrom->format('m/Y')}
+								{if $data.models[$i+$k]->yearFrom}{$data.models[$i+$k]->yearFrom->format('m/Y')}{/if}
 								- {if $data.models[$i+$k]->yearTo}{$data.models[$i+$k]->yearTo->format('m/Y')}{/if}
 							</div>
 						</li>

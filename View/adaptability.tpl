@@ -14,7 +14,7 @@
 		{foreach from=$data.adaptability item="adaptability"}
 			<tr>
 				<td>{$adaptability->name}</td>
-				<td>{$adaptability->yearFrom->format('m/Y')} - {if $adaptability->yearTo}{$adaptability->yearTo->format('m/Y')}{/if}</td>
+				<td>{if $adaptability->yearFrom}{$adaptability->yearFrom->format('m/Y')}{/if} - {if $adaptability->yearTo}{$adaptability->yearTo->format('m/Y')}{/if}</td>
 				<td>{$adaptability->motorCodes}</td>
 				<td>{$adaptability->constructionType}</td>
 				<td>{$adaptability->cylinderCapacityCcm}</td>

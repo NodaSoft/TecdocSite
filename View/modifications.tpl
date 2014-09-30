@@ -14,8 +14,8 @@
 			<td>
 				<a href="/?man={$smarty.get.man}&model={$smarty.get.model}&modelVariant={$modification->id}">{$modification->name}</a>
 			</td>
-			<td>{$modification->yearFrom->format('m')}/{$modification->yearFrom->format('Y')}
-				- {$modification->yearTo->format('m')}/{$modification->yearTo->format('Y')}</td>
+			<td>{if $modification->yearFrom}{$modification->yearFrom->format('m/Y')}{/if}
+				- {if $modification->yearTo}{$modification->yearTo->format('m/Y')}{/if}</td>
 			<td>{$modification->motorCodes}</td>
 			<td>{$modification->constructionType}</td>
 			<td>{$modification->cylinderCapacityLiter} л.</td>
