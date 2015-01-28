@@ -1,7 +1,6 @@
 <?php
 namespace NS\TecDocSite\Interfaces;
 
-interface PageInterface
-{
+interface PageInterface {
 	public function getHtml();
 } 

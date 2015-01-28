@@ -4,20 +4,20 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "47228447ca721844e98c5d3f637be069",
+    "hash": "527569741b04e5514e3d4f7d0cccdf01",
     "packages": [
         {
             "name": "nodasoft/abcp_api_client",
-            "version": "1.0",
+            "version": "1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/NodaSoftLtd/ABCPApiClient.git",
-                "reference": "d69e39517a7105598ba98b19b5fee04874b4239e"
+                "reference": "de38bc7c8d3912ace729fe5512b1bb349f6b2b48"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NodaSoftLtd/ABCPApiClient/zipball/d69e39517a7105598ba98b19b5fee04874b4239e",
-                "reference": "d69e39517a7105598ba98b19b5fee04874b4239e",
+                "url": "https://api.github.com/repos/NodaSoftLtd/ABCPApiClient/zipball/de38bc7c8d3912ace729fe5512b1bb349f6b2b48",
+                "reference": "de38bc7c8d3912ace729fe5512b1bb349f6b2b48",
                 "shasum": ""
             },
             "require": {
@@ -49,25 +49,36 @@
                 "nodasoft",
                 "restfull client"
             ],
-            "time": "2014-09-26 10:46:25"
+            "time": "2015-01-27 12:53:54"
         },
         {
             "name": "smarty/smarty",
             "version": "v3.1.19",
             "source": {
-                "type": "svn",
-                "url": "http://smarty-php.googlecode.com/svn",
-                "reference": "/tags/v3.1.19/@4867"
+                "type": "git",
+                "url": "https://github.com/smarty-php/smarty.git",
+                "reference": "be0fd3186ceec57e4da9a44031f517c06ae2418a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/smarty-php/smarty/zipball/be0fd3186ceec57e4da9a44031f517c06ae2418a",
+                "reference": "be0fd3186ceec57e4da9a44031f517c06ae2418a",
+                "shasum": ""
             },
             "require": {
                 "php": ">=5.2"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.1.x-dev"
+                }
+            },
             "autoload": {
                 "classmap": [
-                    "distribution/libs/Smarty.class.php",
-                    "distribution/libs/SmartyBC.class.php",
-                    "distribution/libs/sysplugins/smarty_security.php"
+                    "libs/Smarty.class.php",
+                    "libs/SmartyBC.class.php",
+                    "libs/sysplugins/smarty_security.php"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -93,24 +104,15 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2014-08-07 20:42:11"
+            "time": "2014-10-31 01:29:14"
         }
     ],
-    "packages-dev": [
-
-    ],
-    "aliases": [
-
-    ],
+    "packages-dev": [],
+    "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [
-
-    ],
+    "stability-flags": [],
     "prefer-stable": false,
-    "platform": [
-
-    ],
-    "platform-dev": [
-
-    ]
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
 }

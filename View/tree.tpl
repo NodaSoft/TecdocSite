@@ -1,4 +1,9 @@
 <h2>Группы деталей</h2>
+{$data.breadcrumbs}
+<div class="tecdocTop">
+	<input name="searchTecdoc" id="searchTecdoc" value="" placeholder="Начните вводить слово..."
+	       class="jqueryPlaceholder"/>
+</div>
 <table class="TecDocTable">
 	<tr>
 		<td style="vertical-align: top;">
@@ -51,3 +56,20 @@
 		</td>
 	</tr>
 </table>
+<script>
+	$('#searchTecdoc').keyup(function () {
+		$('.dTreeNode').hide();
+		var searchText = $(this).val();
+		if (searchText) {
+			tree.openAll();
+		} else {
+			tree.closeAll();
+		}
+		$('.dTreeNode').each(function(){
+			$c = $(this).find('a:NotContainsCaseInsensitive("' + searchText + '")');
+			if (!$c.length) {
+				tree.showTo($(this));
+			}
+		});
+	});
+</script>

@@ -1,8 +1,7 @@
 <?php
 namespace NS\TecDocSite\Common;
 
-class View
-{
+class View {
 
 	/**
 	 * @var \Smarty

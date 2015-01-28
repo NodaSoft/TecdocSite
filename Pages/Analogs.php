@@ -1,14 +1,13 @@
 <?php
 namespace NS\TecDocSite\Pages;
 
-use NS\TecDocSite\Common\AnalogTypes;
 use NS\ABCPApi\RestApiClients\TecDoc;
+use NS\TecDocSite\Common\AnalogTypes;
 use NS\TecDocSite\Common\TecDocApiConfig;
 use NS\TecDocSite\Common\View;
 use NS\TecDocSite\Interfaces\PageInterface;
 
-class Analogs implements PageInterface
-{
+class Analogs implements PageInterface {
 	/**
 	 * Возвращает html страницы с аналогами.
 	 *

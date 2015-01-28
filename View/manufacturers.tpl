@@ -1,6 +1,11 @@
 <h2>Каталог TecDoc</h2>
+{$data.breadcrumbs}
+<div class="tecdocTop">
+	<input name="searchTecdoc" id="searchTecdoc" value="" placeholder="Начните вводить слово..."
+	       class="jqueryPlaceholder"/>
+</div>
 <div>
-	<ul class="tabs_table">
+	<ul class="tabs_table clearfix">
 		<li {if empty($data.carType) && empty($data.selectedLetter)}class="active"{/if}><a href="/">Все</a></li>
 		<li {if $data.carType == 1}class="active"{/if}><a href="/?carType=1">Легковые</a></li>
 		<li {if $data.carType == 2}class="active"{/if}><a href="/?carType=2">Грузовые</a></li>
@@ -28,3 +33,11 @@
 		{/if}
 	{/foreach}
 </div>
+<script>
+	$('#searchTecdoc').keyup(function () {
+		$('.brandsList li, .listLine').show();
+		var searchText = $(this).val();
+		$('.listLine:NotContainsCaseInsensitive("' + searchText + '")').hide();
+		$('.brandsList .forSearch:NotContainsCaseInsensitive("' + searchText + '")').closest('li').hide();
+	});
+</script>

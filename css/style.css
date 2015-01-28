@@ -1,541 +1,770 @@
+.clearfix:after {
+	content: "";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+.clearfix {
+	display: inline-block;
+}
+
+.clearfix {
+	display: block;
+}
+
+.clearfix {
+	zoom: 1;
+}
+
+/* Icons*/
+@font-face {
+	font-family: 'icomoon';
+	src:url('http://admin.abcp.ru/fonts/icomoon.eot?-hq9buh');
+	src:url('http://admin.abcp.ru/fonts/icomoon.eot?#iefix-hq9buh') format('embedded-opentype'),
+	url('http://admin.abcp.ru/fonts/icomoon.woff?-hq9buh') format('woff'),
+	url('http://admin.abcp.ru/fonts/icomoon.ttf?-hq9buh') format('truetype'),
+	url('http://admin.abcp.ru/fonts/icomoon.svg?-hq9buh#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="fr-icon-"], [class*=" fr-icon-"] {
+	font-family: 'icomoon' !important;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	text-decoration: none !important;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.fr-icon-layout:before {
+	content: "\e678";
+}
+
+.fr-icon-list:before {
+	content: "\e679";
+}
+
+/*Tabs*/
 ul.tabs_table {
-    border-bottom: 1px solid #E5E5E5;
-    padding: 0;
-    margin: 0;
+	border-bottom: 1px solid #E5E5E5;
+	padding: 0;
+	margin: 0 0 10px 0;
 }
 
 ul.tabs_table li {
-    display: block;
-    float: left;
-    margin: 0 2px -1px 0;
+	display: block;
+	float: left;
+	margin: 0 2px -1px 0;
 }
 
 ul.tabs_table li a {
-    display: block;
-    font-size: 13px;
-    padding: 4px 5px;
-    color: #0263B0;
-    text-decoration: none;
-    border: 1px solid transparent;
-    border-radius: 4px 4px 0 0;
+	display: block;
+	font-size: 13px;
+	padding: 4px 5px;
+	color: #0263B0;
+	text-decoration: none;
+	border: 1px solid transparent;
+	border-radius: 4px 4px 0 0;
 }
 
 ul.tabs_table li a:hover {
-    color: #3283D0;
-    background: #FAFAFA;
-    border-color: #E5E5E5;
-    border-bottom-color: transparent;
+	color: #3283D0;
+	background: #FAFAFA;
+	border-color: #E5E5E5;
+	border-bottom-color: transparent;
 }
 
 ul.tabs_table li.active a {
-    background: #fff;
-    border: 1px solid #E5E5E5;
-    border-bottom-color: transparent;
-    cursor: default;
-}
-
-ul.tabs_table li.active a {
+	background: #fff;
+	border: 1px solid #E5E5E5;
+	border-bottom-color: transparent;
+	cursor: default;
     color: #000000;
 }
 
-ul.tabs_common {
-    background: transparent url(http://admin.abcp.ru/common.images/tabs_bg_common.gif) bottom repeat-x;
-    margin: 0 0 20px 0;
-    padding: 0;
+/*Main*/
+body {
+	overflow-y: scroll;
 }
 
-ul.tabs_common li {
-    background: none;
-    padding-left: 0;
-    padding-bottom: 0;
-    border: 1px solid #D7D7D7;
-    display: block;
-    float: left;
-    margin: 0 5px 0 0;
-}
-
-ul.tabs_common li a {
-    background-color: #F7F7F7;
-    border-top: 1px solid #FFFFFF;
-    display: block;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 4px 10px 5px 10px;
-}
-
-ul.tabs_common li a:hover {
-    background-color: #F0F0F0;
-    color: #000000;
-    text-decoration: none;
-}
-
-ul.tabs_common li.active {
-    border-bottom-color: #FFFFFF;
-}
-
-ul.tabs_common li.active a {
-    color: #000000;
-    background-color: #FFFFFF;
-}
-
-#tecdocArticleInfoTabs {
-    border: none;
-    padding: 0;
-}
-
-.TecDocMain {
-    margin: auto;
-    max-width: 1260px;
-    min-width: 800px;
-    background: #fff;
-    position: relative;
-    padding: 10px 15px;
+body.searchResultInfo {
+	background: #fff;
+	margin: 10px 0;
 }
 
 .TecDocMain * {
-    font-family: Arial, Sans-serif;
+	font-family: Arial, Sans-serif;
+}
+
+.TecDocMain {
+	margin: auto;
+	max-width: 1260px;
+	min-width: 800px;
+	background: #fff;
+	position: relative;
+	padding: 10px 15px;
 }
 
 .tecdocTop {
-    background: #FAFAFA;
-    padding: 10px;
-    margin: 10px 0 15px;
-    border: 1px solid #E5E5E5;
+	background: #FAFAFA;
+	padding: 10px;
+	margin: 10px 0 15px;
+	border: 1px solid #E5E5E5;
 }
-
-.TecDocTitle {
-    background: #fff;
-    padding: 0 0 10px 0;
-    font-size: 13px;
-    color: #454545;
+.tecdocTitle {
+	background: #fff;
+	padding: 15px 0px 0px 0;
+	font-size: 13px;
+	color: #454545;
 }
-
 span.TecDocCrumb {
-    font-size: 13px;
-    color: #454545;
+	font-size: 13px;
+	color: #454545;
 }
 
 a.TecDocCrumb {
-    font-size: 13px;
-    color: #0263B0;
-    text-decoration: underline;
+	font-size: 13px;
+	color: #0263B0;
+	text-decoration: underline;
 }
 
 a.TecDocCrumb:hover {
-    color: #3283D0;
+	color: #3283D0;
 }
 
 #searchTecdoc {
-    height: 20px;
-    border: 1px solid #CECECE;
-    width: 250px;
-    padding: 2px 5px;
-    font: normal 13px/20px 'arial';
-    color: #454545;
+	height: 24px;
+	border: 1px solid #CECECE;
+	width: 250px;
+	padding: 2px 5px;
+	font: normal 13px/24px 'arial';
+	color: #454545;
 }
 
 #searchTecdoc.jqueryPlaceholder {
-    font: normal 13px/20px 'arial';
-    color: #777 !important;
+	color: #777 !important;
 }
 
-/*Таблица tecdoc*/
-
+/*Tecdoc. Первый уровень*/
 .TecDocCont {
-    clear: both;
-    border-top: 1px solid #E5E5E5;
+	clear: both;
+	border-top: 1px solid #E5E5E5;
 }
 
 .TecDocCont .listLine {
-    clear: both;
-    float: left;
-    width: 100%;
-    border-bottom: 1px solid #E5E5E5;
-    position: relative;
+	clear: both;
+	float: left;
+	width: 100%;
+	border-bottom: 1px solid #E5E5E5;
+	position: relative;
 }
 
 .TecDocCont .listLine:last-child {
-    border: none;
+	border: none;
 }
 
 .listLine .wordBold {
-    float: left;
-    padding: 5px 15px;
-    font: bold 13px/13px 'arial';
+	float: left;
+	padding: 5px 15px;
+	font: bold 13px/13px 'arial';
 }
 
 .listLine .brandsList {
-    background: #F0F0F0;
+	background: #F0F0F0;
 }
 
 .listLine .brandsList ul {
-    margin: 0 0 0 40px;
-    padding: 5px 0 5px 10px;
-    border-left: 1px solid #E5E5E5;
-    background: #fff;
+	margin: 0 0 0 40px;
+	padding: 5px 0 5px 10px;
+	border-left: 1px solid #E5E5E5;
+	background: #fff;
 }
 
 .listLine .brandsList ul:hover {
-    background: #FAFAFA;
+	background: #FAFAFA;
 }
 
 .listLine .brandsList ul li {
-    display: inline-block;
-    list-style: none;
-    padding: 3px 5px;
-    width: 167px;
-    word-break: break-all;
-    vertical-align: middle;
+	display: inline-block;
+	list-style: none;
+	padding: 3px 5px;
+	width: 167px;
+	word-break: break-all;
+	vertical-align: middle;
 }
 
 .brandsList ul li a {
-    color: #0263B0;
-    text-decoration: underline;
-    font: normal 12px/12px 'arial';
+	color: #0263B0;
+	text-decoration: underline;
+	font: normal 12px/12px 'arial';
 }
 
 .brandsList ul li a:hover {
-    color: #3283D0;
-    text-decoration: underline;
+	color: #3283D0;
+	text-decoration: underline;
 }
+/*КОНЕЦ Tecdoc. Первый уровень*/
 
 /* TecDoc второй уровень поиска (Модели) */
-
 ul.TecDocModelTitle,
 ul.ulTecDocModels {
-    float: left;
-    clear: both;
-    display: table;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    list-style: none;
-    border-bottom: 1px solid #E5E5E5;
+	float: left;
+	clear: both;
+	display: table;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	list-style: none;
+	border-bottom: 1px solid #E5E5E5;
 }
 
 ul.TecDocModelTitle {
-    border-top: 1px solid #e5e5e5;
-    background-color: #F0F0F0;
-}
-
-ul.TecDocModelTitle li {
-    font: bold 13px/14px 'Arial' !important;
-}
-
-ul.ulTecDocModels li.couple:hover {
-    background: #FAFAFA;
+	border-top: 1px solid #e5e5e5;
+	background-color: #F0F0F0;
 }
 
 ul.TecDocModelTitle li.couple,
 ul.ulTecDocModels li.couple {
-    font: normal 12px/14px 'Arial';
-    color: #454545;
-    display: inline-block;
-    vertical-align: middle;
-    width: 30%;
-    padding: 0.5% 1.5%;
-    margin-right: -1px;
+	font: normal 12px/14px 'Arial';
+	color: #454545;
+	display: inline-block;
+	vertical-align: middle;
+	width: 30%;
+	padding: 0.5% 1.5%;
+	margin-right: -1px;
+}
+
+ul.ulTecDocModels li.couple:hover {
+	background: #FAFAFA;
 }
 
 ul.TecDocModelTitle li.couple {
-    padding: 0.7% 1.5%;
+	padding: 0.7% 1.5%;
+	font: bold 13px/14px 'Arial' !important;
 }
 
 ul.TecDocModelTitle li .TecDocModel,
 ul.ulTecDocModels li .TecDocModel {
-    float: left;
-    width: 56%;
+	float: left;
+	width: 56%;
 }
 
 ul.ulTecDocModels .TecDocModel a {
-    color: #0263B0;
-    text-decoration: underline;
-    font: normal 12px/16px 'arial';
+	color: #0263B0;
+	text-decoration: underline;
+	font: normal 12px/16px 'arial';
 }
 
 ul.TecDocModelTitle li .TecDocYear,
 ul.ulTecDocModels li .TecDocYear {
-    float: left;
-    width: 44%;
-    text-align: right;
+	float: left;
+	width: 44%;
+	text-align: right;
 }
-
 /* КОНЕЦ Второго уровня поиска (Модели) */
 
+/* TecDoc. Третий уровень */
 .TecDocTable {
-    border-collapse: collapse;
-    border: 0;
-    border-spacing: 0;
-    width: 100%;
-    max-width: 1260px;
-    background: #fff;
+	border-collapse: collapse;
+	border: 0;
+	border-spacing: 0;
+	width: 100%;
+	max-width: 1260px;
+	background: #fff;
 }
 
-.TecDocTable tr {
-    background: #fff;
-}
-
-.TecDocTable tr.trSearchEven {
-    background: #FAFAFA;
+.TecDocTable tr{
+	background: #fff;
 }
 
 .TecDocTable td,
 .TecDocTable th {
-    padding: 5px 10px;
-    height: 14px;
-    text-align: left;
-    font: 12px/14px 'arial';
-    color: #454545;
-    border-top: 1px solid #E5E5E5;
-    vertical-align: middle;
+	padding: 5px 10px;
+	height: 14px;
+	text-align: left;
+	font: 12px/14px 'arial';
+	color: #454545;
+	border-top: 1px solid #E5E5E5;
+	vertical-align: middle;
 }
 
 .TecDocTable th {
-    text-align: left;
-    background-color: #F0F0F0;
-    font-weight: bold;
-    font-size: 13px;
-    padding: 7px 10px;
+	text-align: left;
+	background-color: #F0F0F0;
+	font-weight: bold;
+	font-size: 13px;
+	padding: 7px 10px;
 }
 
 .TecDocTable td img {
-    vertical-align: middle;
-    border: 0;
-    outline: none
+	vertical-align: middle;
+	border: 0;
+	outline: none
 }
 
 .TecDocTable .TecDocInfo {
-    width: 15px;
-}
-
-.TecDocTable .TecDocImg {
-    max-width: 150px;
-    width: 0;
-    text-align: center;
-    padding: 5px 0;
-}
-
-.TecDocTable .tecdocBuy {
-    width: 100px;
-    white-space: nowrap;
-}
-
-.TecDocTable .TecDocImg img {
-    max-width: 150px;
-    max-height: 120px;
+	width: 15px;
 }
 
 .TecDocTable td.TecDocYear,
 .TecDocTable th.TecDocYear {
-    border-right: 20px solid #FFF;
-    min-width: 100px;
+	border-right: 20px solid #FFF;
+	min-width: 100px;
 }
 
 .TecDocTable td.TecDocYear:last-child,
 .TecDocTable th.TecDocYear:last-child {
-    border-right: none;
+	border-right: none;
 }
 
 .TecDocTable td a {
-    color: #0263B0;
-    text-decoration: underline;
-    font: normal 12px/16px 'arial';
+	color: #0263B0;
+	text-decoration: underline;
+	font: normal 12px/16px 'arial';
 }
 
 .TecDocTable td a:hover {
-    color: #3283D0;
-    text-decoration: underline;
+	color: #3283D0;
+	text-decoration: underline;
 }
 
 .TecDocTable td.tecdocCt {
-    vertical-align: top;
-    width: 230px;
-    background: #FAFAFA;
-    padding-left: 20px;
+	vertical-align: top;
+	width: 230px;
+	background: #FAFAFA;
+	padding-left: 20px;
 }
 
 .TecDocTable td.tecdocCt span {
-    font: bold 13px/13px 'arial';
-    color: #454545;
-    display: block;
-    margin: 10px 0;
+	font: bold 13px/13px 'arial';
+	color: #454545;
+	display: block;
+	margin: 10px 0;
 }
 
-body.searchResultInfo {
-    background: #fff;
-    margin: 10px 0;
+td.fullInfoImg{
+	vertical-align: top;
+	padding: 0 0 0 20px;
 }
 
-/*Конец таблицы tecdoc*/
+/* КОНЕЦ TecDoc. Третий уровень */
 
-.list {
-    width: 100%;
-    padding: 10px 0 15px 0;
+/* dTree 2.05 */
+.dtree {
+	color: #454545;
+	font: 12px/18px 'arial';
+	white-space: nowrap;
+	width: 100%;
 }
 
-.list a {
-    font: 11px/14px Tahoma, Arial, Helvetica, sans-serif;
-    color: #047;
+.dtree img {
+	border: 0;
+	vertical-align: middle;
 }
 
-.list img {
-    border: none;
+.dTreeNode > img {
+	padding-right: 5px;
 }
 
-.list ul {
-    margin: 0;
-    padding: 0;
+.dtree a.node,
+.dtree a.nodeSel {
+	color: #454545;
+	white-space: nowrap;
+	padding: 1px 2px 1px 0;
+	font: normal 12px/18px 'arial';
+	text-decoration: none;
 }
 
-.list-clear_top {
-    width: 100%;
-    padding: 0 0 25px 0;
+.dtree a.node:hover, .dtree a.nodeSel:hover {
+	color: #333;
+	text-decoration: underline;
 }
 
-.list-clear_bottom {
-    width: 100%;
-    padding: 10px 0 0 0;
+.dtree a.nodeSel {
+	background-color: #F0F0F0;
 }
 
-.list-header {
-    background: url(http://admin.abcp.ru/common.images/list-header.gif) no-repeat;
-    height: 22px;
-    overflow: hidden;
+.dtree .clip {
+	overflow: hidden;
+}
+/*КОНЕЦ dTree 2.05 */
+
+/* TecDoc. Детали */
+.goodsGroupResultRow {
+	vertical-align: top;
+	text-align: left;
+	margin: 15px 0;
+	padding: 0;
 }
 
-.list-header h4 {
-    width: 257px;
-    height: 21px;
-    font-size: 12px;
-    padding: 0;
-    margin: 0;
-    float: left;
+.goodsGroupResultRow .goodsGroupHead{
+	padding-top: 6px;
+	height: 44px;
+	width: 100%;
+	min-width: 605px;
+	background: #fbfbfb;
+	position: relative;
+	border: 1px solid #bfbfbf;
+	border-bottom: 0;
 }
 
-.list-header h4 a {
-    font-size: 12px;
-    color: #FFFFFF;
-    text-decoration: none;
-    font-weight: bold;
-    float: left;
-    margin: 3px 0 0 35px;
+.goodsGroupResultRow .goodsGroupHead .showOnPage{
+	padding: 0;
+	font: normal 12px/12px arial, sans-serif;
+	color: #888;
+	float: right;
 }
 
-.list-header ul {
-    float: right;
-    height: 21px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+.goodsGroupResultRow .goodsGroupHead .showOnPage a,
+.goodsGroupResultRow .goodsGroupHead .showOnPage b{
+	display: inline-block;
+	height: 18px;
+	margin-right: 5px;
+	margin-top: 3px;
+	line-height: 18px;
+	text-align: center;
+	font-size: 13px;
+	font-weight: bold;
+	color: #323232;
+	text-decoration: none;
+	border: 1px solid transparent;
 }
 
-.list-header ul li {
-    float: left;
-    height: 21px;
-    line-height: 21px;
-    padding: 0 5px;
+.goodsGroupResultRow .goodsGroupHead .showOnPage b{
+	background: #F0F0F0;
+	line-height: 18px;
+	border: 1px solid #bfbfbf;
+	box-shadow: inset 0 0 2px 2px #e6e6e6;
+	text-align: center;
+	padding: 0 3px;
 }
 
-.list-header ul li a {
-    background: url(http://admin.abcp.ru/common.images/pointer.gif) no-repeat 100% 60%;
-    padding: 0 10px 0 0;
+.goodsGroupResultRow .goodsGroupHead .sortControl{
+	float: left;
+	min-width: 180px;
+	padding: 0 0 0 15px;
+	color: #888;
+	font: 12px Arial;
 }
 
-.list-header-clear_top {
-    height: 1px;
-    overflow: hidden;
+.goodsGroupResultRow .goodsGroupHead .onlyComplect{
+	padding: 0 0 0 15px;
+	position: absolute;
+	bottom: 8px;
 }
 
-.list-content {
-    background: #ECE6E3 url(http://admin.abcp.ru/common.images/list-content.gif) no-repeat 100% 100%;
+.goodsGroupResultRow .goodsGroupHead .onlyComplect #only_complect{
+	vertical-align: middle;
+	margin: 0 2px 0 0;
 }
 
-.list-content-clear_bottom {
-    background: #ECE6E3;
+.goodsGroupResultRow .goodsGroupHead .onlyComplect > label{
+	vertical-align: middle;
 }
 
-.list-content-header {
-    background: url(http://admin.abcp.ru/common.images/list-content-bg.gif) no-repeat;
+.goodsGroupResultRow .goodsGroupHead .priceForProfile{
+	padding: 0 20px 0 10px;
+	color: #888;
+	font: 12px Arial;
+	display: inline-block;
 }
 
-.top-r {
-    background: url(http://admin.abcp.ru/common.images/list-top-right.gif) no-repeat 100% 0;
-    height: 1%;
-    padding: 12px 0 19px 28px;
-    overflow: hidden;
+.goodsGroupResultRow .goodsGroupHead .priceForProfile select{
+	font-size: 12px;
+	max-width: 110px;
 }
 
-.top-r-clear_top {
-    height: 1%;
-    padding: 12px 0 19px 28px;
-    overflow: hidden;
+.goodsGroupResultRow .goodsGroupHead a{
+	font: normal 12px/14px Arial;
+	text-decoration: underline;
+	color: #0263b0;
 }
 
-.list-column {
-    float: left;
-    width: 19.9%;
-    text-align: left;
+.goodsGroupResultRow .goodsGroupHead a:hover{
+	color: #3283d0;
 }
 
-.list-column ul {
-    width: 100%;
-    overflow: hidden;
-    list-style: none none;
+.goodsGroupResultRow .goodsGroupHead .showingTypes{
+	float: right;
+	padding: 0 0 0 15px;
+	margin-top: -6px;
 }
 
-.list-column ul li {
-    width: 100%;
-    float: left;
-    padding: 2px 0;
+.goodsGroupResultRow .goodsGroupHead .showingTypes a{
+	font-size: 32px;
+	text-align: center;
+	width: 50px;
+	height: 50px;
+	float: left;
+	text-decoration: none;
+	color: #454545;
 }
 
-.list-column ul li a {
-    font-weight: bold;
-    text-decoration: none;
-    white-space: nowrap;
+.goodsGroupResultRow .goodsGroupHead .showingTypes a span{
+	line-height: 50px;
 }
 
-.list-column ul li a:HOVER {
-    text-decoration: underline;
+.goodsGroupResultRow .goodsGroupHead .showingTypes a:hover{
+	color: #0263b0;
 }
 
-.tbl_s {
+.goodsGroupResultRow .goodsGroupHead .showingTypes a.showing-act{
+	background: #F0F0F0;
+	line-height: 33px;
+	border-left: 1px solid #bfbfbf;
+	border-right: 1px solid #bfbfbf;
+	box-shadow: inset 0 0 2px 2px #e6e6e6;
+	color: #454545 !important;
+	cursor: default;
 }
 
-.tbl_s td {
-    padding: 2px;
+.goodsGroupResultRow .goodsGroupHead .showingTypes a.showing-act.showing-list{
+	border-right: 0;
 }
 
-.tbl_s_top {
-    font-size: 11px
+/*paginator*/
+.paginator{
+	text-align: center;
+	margin-bottom: 10px;
 }
 
-.tbl_s_top span {
+.paginator > a{
+	margin-right: 8px;
+	font: 14px/14px Arial;
+	color: #fff;
+	text-decoration: none;
+	background: #bebebe;
+	border: 1px solid #999999;
+	display: inline-block;
+	padding: 5px 6px;
+	-moz-box-shadow: 0 1px 0 #fff;
+	-webkit-box-shadow: 0 1px 0 #fff;
+	box-shadow: 0 1px 0 #fff;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	position: relative;
 }
 
-.tbl_s_top_line {
-    height: 1px;
-    background-color: #2F4E7A;
+.paginator > a.act{
+	background: #323232;
 }
 
-.tbl_s_bottom {
-    border-bottom: 3px solid #E9E9E9;
+.paginator span.first a, .paginator span.last a{
+	color: #646464;
+	font: 12px Arial;
 }
 
-.tbl_s_bottom1 {
-    border-bottom: 1px solid #E9E9E9;
-    font-weight: bold;
-    font-size: 11px;
+.paginator span.first{
+	margin-right: 18px;
 }
 
-.tbl_s_right {
-    border-right: 1px solid #E9E9E9;
+.paginator span.last{
+	margin-left: 6px;
 }
 
-.tbl_s_selected {
-    background-color: #E9E9E9;
+/*Таблица с результатами*/
+table.globalResult{
+	width: 100%;
+	padding: 0;
+	margin: 0 0 10px 0;
+	border-collapse: separate;
+	border-spacing: 0;
+	color:#454545;
+	font-size:11px;
+	border: 1px solid #e8e8e8;
+	-webkit-border-radius: 4px 4px 0 0;
+	-moz-border-radius: 4px 4px 0 0;
+	border-radius: 4px 4px 0 0;
 }
 
-.cart_tr1_color {
-    background-color: #DDDFFF;
+table.globalResult thead th{
+	background: #f0f0f0 url(http://admin.abcp.ru/common.images/global_tables/table_head_bg.png) repeat-x;
+	height: 32px;
+	padding: 2px 4px;
+	font:bold 11px Arial;
+	text-align: left;
+	vertical-align: middle;
+	color:#454545;
+	border-left: 1px solid #e8e8e8;
+}
+
+table.globalResult th:first-child{
+	border-left: 0;
+	width: 18px;
+}
+
+table.globalResult th a{
+	font: 11px Arial;
+}
+
+table.globalResult tbody tr{
+	height: 30px;
+}
+
+table.globalResult tbody td{
+	border-top: 1px solid #e8e8e8;
+	vertical-align: middle;
+	text-align: left;
+	padding: 2px 4px;
+	border-left: 1px solid #e8e8e8;
+	color:#454545;
+	font-size:11px;
+}
+
+table.globalResult tbody td:first-child{
+	border-left: 0;
+}
+
+table.globalResult tbody tr.white {
+	background: #fff;
+}
+
+table.globalResult tbody td a{
+	font: normal 12px/14px Arial;
+	text-decoration: underline;
+	color: #0263b0;
+}
+
+table.globalResult tbody td a:hover{
+	color: #3283d0;
+}
+
+/*Плитки с результатами*/
+.wGoodsGroup .goodsBody{
+	width: 100%;
+	border: 1px solid #bfbfbf;
+	float: left;
+	padding: 14px 0 0 0;
+	background: #F0F0F0;
+}
+
+.wGoodsGroup .goodsBody ul.item_ul{
+	margin: 0;
+	padding: 0 10px;
+	font-size: 0;
+}
+
+.wGoodsGroup .goodsBody ul.item_ul li.item{
+	margin: 0 5px 15px;
+	padding: 9px 0 5px;
+	list-style: none;
+	display: inline-block;
+	*display:inline;
+	zoom: 1;
+	vertical-align: top;
+	width: 183px;
+	min-height: 230px;
+	background: #fff;
+	border: 1px solid #dadada;
+	-moz-box-shadow: 0 0 2px 2px #dfdfdf;
+	-webkit-box-shadow: 0 0 2px 2px #dfdfdf;
+	box-shadow: 0 0 2px 2px #dfdfdf;
+	position: relative;
+}
+
+.wGoodsGroup .goodsBody ul.item_ul li.item div.priceButton {
+	text-align: center;
+	height: 25px;
+}
+
+.wGoodsGroup .goodsBody ul.item_ul li.item div.priceButton a {
+	height: 23px;
+	margin: 0 6px 2px 0;
+	cursor: pointer;
+	font: 12px/14px Arial, Helvetica, sans-serif;
+	text-decoration: none;
+	padding: 3px 10px;
+	color: #606060;
+	border: solid 1px #b7b7b7;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	background: #fff;
+	background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ededed));
+	background: -moz-linear-gradient(top, #fff, #ededed);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed');
+	position: relative;
+}
+
+.wGoodsGroup .goodsBody ul.item_ul li.item div.priceButton a:hover {
+	text-decoration: none;
+	background: #ededed;
+	background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#dcdcdc));
+	background: -moz-linear-gradient(top, #fff, #dcdcdc);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#dcdcdc');
+}
+
+.wGoodsGroup .goodsBody ul.item_ul li.item div.priceButton a:active {
+	position: relative;
+	top: 1px;
+	color: #999;
+	background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#fff));
+	background: -moz-linear-gradient(top, #ededed, #fff);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#ffffff');
+}
+
+.wGoodsGroup .goodsBody ul li .topBlock{
+	min-height: 140px;
+	margin-bottom: 10px;
+}
+
+.wGoodsGroup .goodsBody ul li .topBlock .season{
+	position: absolute;
+	width: 30px;
+	margin-left: 9px;
+	z-index: 2;
+	line-height: 5px;
+}
+
+.wGoodsGroup .goodsBody ul li div.articlePic{
+	text-align: center;
+	height: 130px;
+	position: relative;
+}
+
+.wGoodsGroup .goodsBody ul li div.articlePic img,
+div.articlePic a img {
+	max-height: 130px;
+	max-width: 130px;
+}
+
+.wGoodsGroup .goodsBody div.articlePicList{
+	text-align: center;
+	height: 80px;
+	padding: 5px;
+}
+
+.wGoodsGroup .goodsBody div.articlePicList img,
+div.articlePicList img {
+	max-height: 70px;
+	max-width: 70px;
+}
+
+.wGoodsGroup .goodsBody .articleDesc{
+	padding: 0 0 4px 10px;
+	min-height: 50px;
+}
+
+.wGoodsGroup .goodsBody .articleDesc a{
+	font: normal 12px/14px Arial;
+	text-decoration: underline;
+	color: #0263b0;
+}
+
+.wGoodsGroup .goodsBody .articleDesc a:hover{
+	color: #3283d0;
+}
+
+.wGoodsGroup .goodsBody .articleDesc h3{
+	font: bold 16px Arial;
+	color: #323232;
+	margin: 0 0 2px 0;
 }

@@ -9,8 +9,7 @@ use NS\TecDocSite\Interfaces\PageInterface;
 /**
  * Главная страница. Выводится по умолчанию.
  */
-class Index implements PageInterface
-{
+class Index implements PageInterface {
 
 	/**
 	 * Возвращает html страницы.
@@ -27,18 +26,27 @@ class Index implements PageInterface
 		$manufacturers = $tecDocRestClient->getManufacturers($carType);
 		$manufacturersTemplateData = array();
 		foreach ($manufacturers as $oneManufacturer) {
-			if (isset($oneManufacturer->name)) {
-				$firstLetter = substr($oneManufacturer->name, 0, 1);
-				$manufacturersTemplateData[$firstLetter][] = $oneManufacturer;
-			}
+			$firstLetter = substr($oneManufacturer->name, 0, 1);
+			$manufacturersTemplateData[$firstLetter][] = $oneManufacturer;
 		}
 		$contentTemplateData = array(
-			'manufacturers'  => $manufacturersTemplateData,
-			'carType'        => $carType,
+			'manufacturers' => $manufacturersTemplateData,
+			'carType' => $carType,
+			'breadcrumbs' => self::getBreadcrumbs(),
 			'selectedLetter' => $selectedLetter
 		);
 		$content = View::deploy('manufacturers.tpl', $contentTemplateData);
 		$templateData = array('content' => $content);
 		return View::deploy('index.tpl', $templateData);
+	}
+
+	/**
+	 * Возвращает html код с хлебными крошками.
+	 *
+	 * @return string
+	 */
+	private static function getBreadcrumbs() {
+		$templateData = array();
+		return View::deploy('common/breadcumbs.tpl', $templateData);
 	}
 }

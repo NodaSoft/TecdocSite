@@ -40,7 +40,7 @@
 			</table>
 			<br/>
 		</td>
-		<td>
+		<td class="fullInfoImg">
 			{if !empty($data.articleInfo->documents->data)}
 				<img src="data:{$data.articleInfo->documents->fileType};base64,{$data.articleInfo->documents->data}"/>
 			{/if}

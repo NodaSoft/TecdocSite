@@ -3,10 +3,12 @@ namespace NS\TecDocSite\Pages;
 
 use NS\ABCPApi\RestApiClients\TecDoc;
 use NS\TecDocSite\Common\TecDocApiConfig;
-use NS\TecDocSite\Common\View;
 use NS\TecDocSite\Interfaces\PageInterface;
+use NS\TecDocSite\Common\View;
 
-class Modifications implements PageInterface {
+
+
+class FullInfoModelVariant implements PageInterface {
 	/**
 	 * Возвращает html страницы с модификациями.
 	 *
@@ -17,15 +19,12 @@ class Modifications implements PageInterface {
 		$tecDocRestClient->setUserKey(TecDocApiConfig::USER_KEY)
 			->setUserLogin(TecDocApiConfig::USER_LOGIN)
 			->setUserPsw(TecDocApiConfig::USER_PSW);
-		$manufacturerId = $_GET['man'];
-		$modelId = $_GET['model'];
-		$modifications = $tecDocRestClient->getModifications($manufacturerId, $modelId);
+		$modelId = $_GET['modelVariant'];
+		$modification = $tecDocRestClient->getModificationById($modelId);
 		$contentTemplateData = array(
-			'modifications' => $modifications,
-			'breadcrumbs' => self::getBreadcrumbs(),
-			'man' => $manufacturerId
+			'modification' => $modification
 		);
-		$content = View::deploy('modifications.tpl', $contentTemplateData);
+		$content = View::deploy('full.info.model.variant.tpl', $contentTemplateData);
 		$templateData = array('content' => $content);
 		return View::deploy('index.tpl', $templateData);
 	}
@@ -41,25 +40,13 @@ class Modifications implements PageInterface {
 			->setUserLogin(TecDocApiConfig::USER_LOGIN)
 			->setUserPsw(TecDocApiConfig::USER_PSW);
 		$breadcrumbs = array();
-		$manufacturerId = (int)$_GET['man'];
+		$manufacturerId = $_GET['man'];
 		$manufacturers = $tecDocRestClient->getManufacturers();
 		if (is_array($manufacturers)) {
 			foreach ($manufacturers as $oneManufacturer) {
-				if ($oneManufacturer->id === $manufacturerId) {
+				if ($oneManufacturer->id == $manufacturerId) {
 					$breadcrumbs[] = array(
-						'name' => $oneManufacturer->name,
-						'url' => "?man={$manufacturerId}"
-					);
-				}
-			}
-		}
-		$models = $tecDocRestClient->getModels($manufacturerId);
-		$modelId = (int)$_GET['model'];
-		if (is_array($models)) {
-			foreach ($models as $oneModel) {
-				if ($oneModel->id === $modelId) {
-					$breadcrumbs[] = array(
-						'name' => $oneModel->name
+						'name' => $oneManufacturer->name
 					);
 				}
 			}
@@ -69,4 +56,4 @@ class Modifications implements PageInterface {
 		);
 		return View::deploy('common/breadcumbs.tpl', $templateData);
 	}
-} 
+}

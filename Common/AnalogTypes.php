@@ -1,8 +1,7 @@
 <?php
 namespace NS\TecDocSite\Common;
 
-class AnalogTypes
-{
+class AnalogTypes {
 	/**
 	 * Совпадение.
 	 */

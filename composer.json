@@ -1,18 +1,15 @@
 {
-	"name": "NodaSoft/TecDocSite",
-	"description": "Пример сайта tecdoc API платформы ABCP",
-	"minimum-stability": "dev",
-	"config": {
-		"vendor-dir": "libs"
-	},
-	"authors": [
-		{
-			"name": "Anton Kochnev",
-			"email": "flk@nodasoft.com"
-		}
-	],
-	"require": {
-		"smarty/smarty": "v3.1.19",
-		"nodasoft/abcp_api_client": "1.0"
-	}
+  "name": "NodaSoft/TecDocSite",
+  "description": "Пример сайта tecdoc API платформы ABCP",
+  "minimum-stability": "dev",
+  "authors": [
+    {
+      "name": "Anton Kochnev",
+      "email": "flk@nodasoft.com"
+    }
+  ],
+  "require": {
+    "smarty/smarty": "v3.1.19",
+    "nodasoft/abcp_api_client": "1.1"
+  }
 }

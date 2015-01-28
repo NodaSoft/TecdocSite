@@ -6,8 +6,7 @@ use NS\TecDocSite\Common\TecDocApiConfig;
 use NS\TecDocSite\Common\View;
 use NS\TecDocSite\Interfaces\PageInterface;
 
-class ArticleInfo implements PageInterface
-{
+class ArticleInfo implements PageInterface {
 	/**
 	 * Возвращает html страницы с информацией о детали.
 	 *
