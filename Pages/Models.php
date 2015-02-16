@@ -30,15 +30,16 @@ class Models implements PageInterface {
 		for ($i = $begin - $step; $i < $end; $i += $step) {
 			$yearsFilter[] = array(
 				'begin' => $i < $begin ? 0 : $i,
-				'end' => $i >= $end - $step ? $end : $i + $step
+				'end' => $i >= $end - $step ? $end : $i + $step,
+				'endView' => $i >= $end - $step ? '' : $i + $step
 			);
 		}
 		foreach ($dataModels as $oneModel) {
 			$isModelVisible = $selectedYear === 'all';
-			$oneModel->yearTo = $oneModel->yearTo ? $oneModel->yearTo : new \DateTime();
-			$oneModel->yearFrom = $oneModel->yearFrom ? $oneModel->yearFrom : new \DateTime('1970-01-01');
+			$yearTo = $oneModel->yearTo ? $oneModel->yearTo : new \DateTime();
+			$yearFrom = $oneModel->yearFrom ? $oneModel->yearFrom : new \DateTime('1970-01-01');
 			foreach ($yearsFilter as &$oneRangeValue) {
-				if ($oneModel->yearFrom->format('Y') <= $oneRangeValue['end'] && $oneModel->yearTo->format('Y') >= $oneRangeValue['begin']) {
+				if ($yearFrom->format('Y') <= $oneRangeValue['end'] && $yearTo->format('Y') >= $oneRangeValue['begin']) {
 					$oneRangeValue['isVisible'] = TRUE;
 					if ($selectedYear === $oneRangeValue['end']) {
 						$isModelVisible = TRUE;

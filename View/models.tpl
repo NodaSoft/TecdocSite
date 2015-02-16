@@ -13,7 +13,7 @@
 			{if $onePeriod.isVisible}
 				<li {if $data.selectedYear == $onePeriod.end}class="active"{/if} >
 					<a href="?man={$data.man}&yearFilter={$onePeriod.end}">{if $onePeriod.begin}{$onePeriod.begin}{/if}
-						- {$onePeriod.end}</a>
+						- {$onePeriod.endView}</a>
 				</li>
 			{/if}
 		{/foreach}
