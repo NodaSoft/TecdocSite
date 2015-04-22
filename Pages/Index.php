@@ -46,7 +46,9 @@ class Index implements PageInterface {
 	 * @return string
 	 */
 	private static function getBreadcrumbs() {
-		$templateData = array();
+		$templateData = array(
+			'breadcrumbs' => array()
+		);
 		return View::deploy('common/breadcumbs.tpl', $templateData);
 	}
 }

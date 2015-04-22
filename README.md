@@ -17,4 +17,4 @@ php composer.phar install
 Заполнить данные выданные при регистрации в файле:
 Common/TecDocApiConfig.php
 Отредактировать ссылку для перехода к поиску на вашем сайте. Ссылка находится в файле:
-View/group.details.tpl строка 33
+View/group.details.tpl строка 62 и 110 (<a target="_blank" href="//4mycar.ru/parts/ ...)
