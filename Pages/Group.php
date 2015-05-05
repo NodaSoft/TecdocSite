@@ -10,7 +10,17 @@ use NS\TecDocSite\Common\View;
 use NS\TecDocSite\Interfaces\PageInterface;
 
 class Group implements PageInterface {
+	/**
+	 * Варианты отображения единиц на страницу.
+	 *
+	 * @var int[]
+	 */
 	private $itemsPerPage = array(20, 40, 100);
+
+	/**
+	 * Дефолтный вид отображения плитка
+	 */
+	const DEFAULT_VIEW_MODE = 'tile';
 
 	/**
 	 * Возвращает html дерева категорий для модификации.
@@ -25,9 +35,10 @@ class Group implements PageInterface {
 		$modificationId = $_GET['modelVariant'];
 		$categoryId = $_GET['group'];
 		$articles = $tecDocRestClient->getArticles($modificationId, $categoryId);
-		$itemsPerPage = in_array($_GET['itemsPerPage'], $this->itemsPerPage, TRUE) ? $_GET['itemsPerPage'] : current($this->itemsPerPage);
+		$viewMode = isset($_GET['viewMode']) ? $_GET['viewMode'] : self::DEFAULT_VIEW_MODE;
+		$itemsPerPage = isset($_GET['itemsPerPage']) && in_array($_GET['itemsPerPage'], $this->itemsPerPage, TRUE) ? $_GET['itemsPerPage'] : current($this->itemsPerPage);
 		$totalArticles = count($articles);
-		$start = is_numeric($_GET['start']) && $_GET['start'] < $totalArticles && $_GET['start'] > 0 ? $_GET['start'] : 0;
+		$start = isset($_GET['start']) && is_numeric($_GET['start']) && $_GET['start'] < $totalArticles && $_GET['start'] > 0 ? $_GET['start'] : 0;
 		$articles = array_slice($articles, $start, $itemsPerPage);
 		$baseUrlArray = array(
 			'man' => $_GET['man'],
@@ -46,14 +57,15 @@ class Group implements PageInterface {
 			'itemsPerPareValues' => $this->itemsPerPage,
 			'selectedItemsPerPage' => $itemsPerPage,
 			'baseUrl' => $baseUrl,
-			'viewMode' => $_GET['viewMode'],
-			'itemsPerPage' => $_GET['itemsPerPage'],
-			'start' => $_GET['start'],
+			'viewMode' => $viewMode,
+			'itemsPerPage' => $itemsPerPage,
+			'start' => $start,
 			'paginator' => isset($paginator) ? $paginator->deploy() : '',
 			'articles' => $articles
 		);
 		$content = View::deploy('group.details.tpl', $contentTemplateData);
 		$templateData = array('content' => $content);
+
 		return View::deploy('index.tpl', $templateData);
 	}
 
@@ -100,6 +112,7 @@ class Group implements PageInterface {
 		$templateData = array(
 			'breadcrumbs' => $breadcrumbs
 		);
+
 		return View::deploy('common/breadcumbs.tpl', $templateData);
 	}
 }

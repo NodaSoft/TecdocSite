@@ -23,19 +23,19 @@ class Models implements PageInterface {
 		$begin = 1990;
 		$end = (int)date('Y');
 		$step = 10;
-		$yearFilterValue = (int)$_GET['yearFilter'];
-		$selectedYear = $yearFilterValue ? $yearFilterValue : 'all';
+		$selectedYear = isset($_GET['yearFilter']) && isset($_GET['yearFilter']) ? (int)$_GET['yearFilter'] : 'all';
 		$yearsFilter = array();
 		$outModels = array();
 		for ($i = $begin - $step; $i < $end; $i += $step) {
 			$yearsFilter[] = array(
 				'begin' => $i < $begin ? 0 : $i,
 				'end' => $i >= $end - $step ? $end : $i + $step,
-				'endView' => $i >= $end - $step ? '' : $i + $step
+				'endView' => $i >= $end - $step ? '' : $i + $step,
+				'isVisible' => FALSE
 			);
 		}
+		$isModelVisible = $selectedYear === 'all';
 		foreach ($dataModels as $oneModel) {
-			$isModelVisible = $selectedYear === 'all';
 			$yearTo = $oneModel->yearTo ? $oneModel->yearTo : new \DateTime();
 			$yearFrom = $oneModel->yearFrom ? $oneModel->yearFrom : new \DateTime('1970-01-01');
 			foreach ($yearsFilter as &$oneRangeValue) {
@@ -61,6 +61,7 @@ class Models implements PageInterface {
 		$templateData = array(
 			'content' => View::deploy('models.tpl', $contentTemplateData)
 		);
+
 		return View::deploy('index.tpl', $templateData);
 	}
 
@@ -89,6 +90,7 @@ class Models implements PageInterface {
 		$templateData = array(
 			'breadcrumbs' => $breadcrumbs
 		);
+
 		return View::deploy('common/breadcumbs.tpl', $templateData);
 	}
 } 
