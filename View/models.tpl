@@ -6,7 +6,7 @@
 </div>
 <div class="clearfix catalogTabs">
 	<ul class="tabs_table clearfix">
-		<li {if $data.selectedYear == 'all'}class="active"{/if}>
+		<li {if $data.selectedYear == -1}class="active"{/if}>
 			<a href="?man={$data.man}&yearFilter=all">Все</a>
 		</li>
 		{foreach from=$data.yearsFilter item=onePeriod }
@@ -23,15 +23,15 @@
 	<div>
 		<ul class="TecDocModelTitle">
 			<li class="couple">
-				<div class="TecDocModel">Название</div>
+				<div class="TecDocModel">Модель</div>
 				<div class="TecDocYear">Год выпуска</div>
 			</li>
 			<li class="couple">
-				<div class="TecDocModel">Название</div>
+				<div class="TecDocModel">Модель</div>
 				<div class="TecDocYear">Год выпуска</div>
 			</li>
 			<li class="couple">
-				<div class="TecDocModel">Название</div>
+				<div class="TecDocModel">Модель</div>
 				<div class="TecDocYear">Год выпуска</div>
 			</li>
 		</ul>

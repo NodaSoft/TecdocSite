@@ -5,12 +5,12 @@
 	<div class="wGoodsGroup wGoodsGroupTile">
 		<div class="goodsGroupHead">
 			<div class="showingTypes">
-				<a href="?{$data.baseUrl}{if $data.start}&start={$data.start}{/if}{if $data.itemsPerPage}&itemsPerPage={$data.itemsPerPage}{/if}&viewMode=tile"
+				<a href="?{$data.baseUrl}{if $data.start}&start={$data.start}{/if}{if $data.selectedItemsPerPage}&itemsPerPage={$data.selectedItemsPerPage}{/if}&viewMode=tile"
 				   title="Плиткой"
 				   class="showing-tile{if $data.viewMode != 'list'} showing-act{/if}">
 					<span class="fr-icon-layout"></span>
 				</a>
-				<a href="?{$data.baseUrl}{if $data.start}&start={$data.start}{/if}{if $data.itemsPerPage}&itemsPerPage={$data.itemsPerPage}{/if}&viewMode=list"
+				<a href="?{$data.baseUrl}{if $data.start}&start={$data.start}{/if}{if $data.selectedItemsPerPage}&itemsPerPage={$data.selectedItemsPerPage}{/if}&viewMode=list"
 				   title="Списком"
 				   class="showing-list{if $data.viewMode == 'list'} showing-act{/if}">
 					<span class="fr-icon-list"></span>
@@ -18,7 +18,7 @@
 			</div>
 			<div class="showOnPage">
 				На странице:<br>
-				{foreach from=$data.itemsPerPareValues item=oneItemPerPage}
+				{foreach from=$data.itemsPerPageValues item=oneItemPerPage}
 					{if $oneItemPerPage == $data.selectedItemsPerPage}
 						<b>{$oneItemPerPage}</b>
 					{else}
@@ -40,8 +40,8 @@
 								<div class="articlePic">
 									<div class="articleImages">
 										<div class="article-image">
-											{if !empty($oneArticle->documents->data)}
-												<img src="data:{$oneArticle->documents->fileType};base64,{$oneArticle->documents->data}"/>
+											{if !empty($oneArticle->imageName)}
+												<img src="{$oneArticle->imageUrl}"/>
 											{else}
 												<img src="/images/common/no_image.jpg"/>
 											{/if}
@@ -72,7 +72,7 @@
 						<th></th>
 						<th>Фирма</th>
 						<th>Код детали</th>
-						<th>Модель</th>
+						<th>Описание</th>
 						<th></th>
 					</tr>
 					</thead>
@@ -83,10 +83,8 @@
 							<td>
 								<div class="articlePicList">
 									<div class="articleImages">
-										{if !empty($oneArticle->documents->data)}
-											<a href="data:{$oneArticle->documents->fileType};base64,{$oneArticle->documents->data}">
-												<img src="data:{$oneArticle->documents->fileType};base64,{$oneArticle->documents->data}"/>
-											</a>
+										{if !empty($oneArticle->imageName)}
+											<img src="{$oneArticle->imageUrl}"/>
 										{else}
 											<img src="/images/common/no_image.jpg"/>
 										{/if}
@@ -101,7 +99,7 @@
 							<td>
 								{$oneArticle->number}
 							</td>
-							{*Модель*}
+							{*Описание*}
 							<td class="description">
 								<a target="_blank" href="/?articleInfo&articleId={$oneArticle->id}">{$oneArticle->description}</a>
 							</td>

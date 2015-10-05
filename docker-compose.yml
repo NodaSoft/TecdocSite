@@ -1,0 +1,26 @@
+web55:
+  image: nodasoft/web55
+  working_dir: /var/www
+  command: php -S 0.0.0.0:8000 -t /var/www
+  ports:
+    - "8055:8000"
+  volumes:
+    - .:/var/www
+
+web56:
+  image: nodasoft/web56
+  working_dir: /var/www
+  command: php -S 0.0.0.0:8000 -t /var/www
+  ports:
+    - "8056:8000"
+  volumes:
+    - .:/var/www
+
+web70:
+  image: nodasoft/web70
+  working_dir: /var/www
+  command: php -S 0.0.0.0:8000 -t /var/www
+  ports:
+    - "8070:8000"
+  volumes:
+    - .:/var/www

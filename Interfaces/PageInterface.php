@@ -1,6 +1,18 @@
 <?php
 namespace NS\TecDocSite\Interfaces;
 
-interface PageInterface {
-	public function getHtml();
-} 
+/**
+ * Интерфейс описывающий поведение страницы
+ *
+ * Interface PageInterface
+ * @package NS\TecDocSite\Interfaces
+ */
+interface PageInterface
+{
+    /**
+     * Возвращает сгенерированный html код страницы
+     *
+     * @return mixed
+     */
+    public function getHtml();
+}

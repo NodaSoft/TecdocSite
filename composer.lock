@@ -1,23 +1,24 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "527569741b04e5514e3d4f7d0cccdf01",
+    "hash": "bb1e1ba2ac728ba83f33ab8e5a4d447c",
+    "content-hash": "1117dcfca4ee84ad37c725c3c06c43c6",
     "packages": [
         {
             "name": "nodasoft/abcp_api_client",
-            "version": "1.1",
+            "version": "1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/NodaSoftLtd/ABCPApiClient.git",
-                "reference": "de38bc7c8d3912ace729fe5512b1bb349f6b2b48"
+                "reference": "ebd67a82f838c1cef0843b8dd810e33f2705782d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NodaSoftLtd/ABCPApiClient/zipball/de38bc7c8d3912ace729fe5512b1bb349f6b2b48",
-                "reference": "de38bc7c8d3912ace729fe5512b1bb349f6b2b48",
+                "url": "https://api.github.com/repos/NodaSoftLtd/ABCPApiClient/zipball/ebd67a82f838c1cef0843b8dd810e33f2705782d",
+                "reference": "ebd67a82f838c1cef0843b8dd810e33f2705782d",
                 "shasum": ""
             },
             "require": {
@@ -49,7 +50,7 @@
                 "nodasoft",
                 "restfull client"
             ],
-            "time": "2015-01-27 12:53:54"
+            "time": "2015-11-19 09:33:25"
         },
         {
             "name": "smarty/smarty",

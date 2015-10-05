@@ -6,7 +6,7 @@
 				<tr>
 					<th>Производитель</th>
 					<th>Номер</th>
-					<th>Наименование</th>
+					<th>Описание</th>
 				</tr>
 				<tr>
 					<td>{$data.articleInfo->brandName}</td>

@@ -1,22 +1,54 @@
 <?php
 namespace NS\TecDocSite\Common;
-/**
- * Скрипт, описывающий интерфейс paginator-a, преднозначенного для перемещения по страницам.
- */
-class PaginatorOptions {
 
-	public $startRecord = 0;
-	public $recordsPageCount = 0;
-	public $totalRecords = 0;
-	public $displayedPagesCount = 9;
-	public $showPagesTotalTitle = FALSE;
-	public $showGoFirstAndLast = TRUE;
-	public $showGoPrevAndNext = TRUE;
-	public $showRefreshLink = FALSE;
-	public $shortLinks = FALSE;
-	public $align = 'left';
-	public $argName = 'start';
-	public $url = NULL;
-	public $urlArgs = NULL;
-	public $template = 'common/paginator.tpl';
+/**
+ * Скрипт, описывающий интерфейс paginator-a, преднозначенного для перемещения по страницам
+ *
+ * Class PaginatorOptions
+ * @package NS\TecDocSite\Common
+ */
+class PaginatorOptions
+{
+    /**
+     * Порядковый номер начального элемента
+     *
+     * @var int
+     */
+    public $startRecord = 0;
+    /**
+     * Количество элементов на страницу
+     *
+     * @var int
+     */
+    public $recordsPageCount = 0;
+    /**
+     * Общее количество элементов на страницу
+     *
+     * @var int
+     */
+    public $totalRecords = 0;
+    /**
+     * Количество отображаемых страниц для перехода
+     *
+     * @var int
+     */
+    public $displayedPagesCount = 9;
+    /**
+     * Имя параметра содержащего номер начального элемента
+     *
+     * @var string
+     */
+    public $argName = 'start';
+    /**
+     * Текущая ссылка
+     *
+     * @var null
+     */
+    public $url;
+    /**
+     * Имя шаблона для пагинатора
+     *
+     * @var string
+     */
+    public $template = 'common/paginator.tpl';
 }

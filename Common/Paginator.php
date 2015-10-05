@@ -2,100 +2,163 @@
 namespace NS\TecDocSite\Common;
 
 /**
- * Класс, реализующий интерфейс paginator-a, преднозначенного для перемещения по страницам.
+ * Класс, реализующий интерфейс paginator-a, преднозначенного для перемещения по страницам
+ *
+ * Class Paginator
+ * @package NS\TecDocSite\Common
  */
-class Paginator {
+class Paginator
+{
+    /**
+     * Одна страница
+     */
+    const ONE_PAGE = 1;
+    /**
+     * Настройки пагинатора
+     *
+     * @var PaginatorOptions|null
+     */
+    private $options = null;
+    /**
+     * Отображаемые страницы
+     *
+     * @var array
+     */
+    private $displayedPages = array();
+    /**
+     * Текущая страница
+     *
+     * @var int
+     */
+    private $currentPage = 0;
+    /**
+     * Количество страниц
+     *
+     * @var int
+     */
+    private $pagesCount = 0;
 
-	const ONE_PAGE = 1;
+    /**
+     * Конструктор класса
+     *
+     * @param PaginatorOptions|null $options
+     */
+    public function __construct(PaginatorOptions $options = null)
+    {
+        $this->options = isset($options) ? $options : new PaginatorOptions();
+    }
 
-	private $options = NULL;
-	private $displayedPages = array();
-	private $currentPage = 0;
-	private $pagesCount = 0;
+    /**
+     * Деструктор класса
+     */
+    public function __destruct()
+    {
+        unset($this->options);
+        unset($this->displayedPages);
+    }
 
-	public function __construct(PaginatorOptions $options = NULL) {
-		$this->options = isset($options) ? $options : new PaginatorOptions();
-	}
+    /**
+     * Возвращает интерфейс пагинатора в виде html
+     *
+     * @return string
+     */
+    public function deploy()
+    {
+        $this->make();
+        $page = '';
+        if (self::ONE_PAGE < $this->getPagesCount()) {
+            $options = $this->getOptions();
+            $url = is_null($options->url) ? $_SERVER['REQUEST_URI'] : $options->url;
+            $parsedUrl = parse_url($url);
+            parse_str($parsedUrl['query'], $urlQueryArray);
+            unset($urlQueryArray[$options->argName]);
+            $newUrlData = array();
+            foreach ($urlQueryArray as $k => $oneUrlQueryItem) {
+                $newUrlData[] = "$k=$oneUrlQueryItem";
+            }
+            $url = $newUrlData ? '?' . implode('&', $newUrlData) : '';
+            $dataTemplate = array(
+                'displayedPages' => $this->getDisplayedPages(),
+                'options' => $options,
+                'argName' => $options->argName,
+                'url' => $url,
+                'currentPage' => $this->getCurrentPage(),
+                'pagesCount' => $this->getPagesCount()
+            );
+            $page = View::deploy($options->template, $dataTemplate);
+        }
+        return $page;
+    }
 
-	public function __destruct() {
-		unset($this->options);
-		unset($this->displayedPages);
-	}
+    /**
+     * Инициализация опций
+     */
+    final protected function make()
+    {
+        $options = $this->getOptions();
+        $startRecord = abs((int)$options->startRecord);
+        $maxRecords = ceil(($options->totalRecords - $options->recordsPageCount) / $options->recordsPageCount) * $options->recordsPageCount;
+        if ($startRecord > $maxRecords) {
+            $startRecord = $maxRecords;
+        }
+        $this->currentPage = floor($startRecord / $options->recordsPageCount) + 1;
+        $this->pagesCount = floor($maxRecords / $options->recordsPageCount) + 1;
+        $leftEdgePage = $this->currentPage - floor($options->displayedPagesCount / 2);
+        if ($leftEdgePage <= 1) {
+            $leftEdgePage = 1;
+        }
+        $rightEdgePage = $leftEdgePage + $options->displayedPagesCount - 1;
+        if ($rightEdgePage >= $this->pagesCount) {
+            $rightEdgePage = $this->pagesCount;
+        }
+        if (($rightEdgePage - $leftEdgePage) < $options->displayedPagesCount) {
+            $leftEdgePage = $rightEdgePage - $options->displayedPagesCount + 1;
+            if ($leftEdgePage <= 1) {
+                $leftEdgePage = 1;
+            }
+        }
+        for ($number = $leftEdgePage; $number <= $rightEdgePage; $number++) {
+            $this->displayedPages[$number] = ($number - 1) * $options->recordsPageCount;
+        }
+    }
 
-	public function deploy() {
-		$this->make();
-		
-		$page = '';
-		if (self::ONE_PAGE < $this->getPagesCount()) {
-			$options = $this->getOptions();
-			$url = is_null($options->url) ? $_SERVER['REQUEST_URI'] : $options->url;
-			$parsedUrl = parse_url($url);
-			parse_str($parsedUrl['query'], $urlQueryArray);
-			unset($urlQueryArray[$options->argName]);
-			$newUrlData = array();
-			foreach ($urlQueryArray as $k => $oneUrlQueryItem) {
-				$newUrlData[] = "$k=$oneUrlQueryItem";
-			}
-			$url = $newUrlData ? '?' . implode('&', $newUrlData) : '';
-			$dataTemplate = array(
-				'displayedPages' => $this->getDisplayedPages(),
-				'options' => $options,
-				'argName' => $options->argName,
-				'url' => $url,
-				'currentPage' => $this->getCurrentPage(),
-				'pagesCount' => $this->getPagesCount()
-			);
-			$page = View::deploy($options->template, $dataTemplate);
-		}
-		return $page;
-	}
+    /**
+     * Вовращает опции для инициализации пагинатора
+     *
+     * @return PaginatorOptions|null
+     */
+    final protected function getOptions()
+    {
+        return $this->options;
+    }
 
-	final protected function make() {
-		$options = $this->getOptions();
+    /**
+     * Возвращает количество страниц
+     *
+     * @return int
+     */
+    final protected function getPagesCount()
+    {
+        return $this->pagesCount;
+    }
 
-		$startRecord = abs((int) $options->startRecord);
-		$maxRecords = ceil(($options->totalRecords - $options->recordsPageCount) / $options->recordsPageCount) * $options->recordsPageCount;
-		if ($startRecord > $maxRecords) {
-			$startRecord = $maxRecords;
-		}
-		$this->currentPage = floor($startRecord / $options->recordsPageCount) + 1;
-		$this->pagesCount = floor($maxRecords / $options->recordsPageCount) + 1;
+    /**
+     * Возвращает отображаемые страницы
+     *
+     * @return array
+     */
+    final protected function getDisplayedPages()
+    {
+        return $this->displayedPages;
+    }
 
-		$leftEdgePage = $this->currentPage - floor($options->displayedPagesCount / 2);
-		if ($leftEdgePage <= 1) {
-			$leftEdgePage = 1;
-		}
-
-		$rightEdgePage = $leftEdgePage + $options->displayedPagesCount - 1;
-		if ($rightEdgePage >= $this->pagesCount) {
-			$rightEdgePage = $this->pagesCount;
-		}
-
-		if (($rightEdgePage - $leftEdgePage) < $options->displayedPagesCount) {
-			$leftEdgePage = $rightEdgePage - $options->displayedPagesCount + 1;
-			if ($leftEdgePage <= 1) {
-				$leftEdgePage = 1;
-			}
-		}
-
-		for ($number = $leftEdgePage; $number <= $rightEdgePage; $number++) {
-			$this->displayedPages[$number] = ($number - 1) * $options->recordsPageCount;
-		}
-	}
-
-	final protected function getOptions() {
-		return $this->options;
-	}
-
-	final protected function getDisplayedPages() {
-		return $this->displayedPages;
-	}
-
-	final protected function getCurrentPage() {
-		return $this->currentPage;
-	}
-
-	final protected function getPagesCount() {
-		return $this->pagesCount;
-	}
+    /**
+     * Возвращает текущую страницу
+     *
+     * @return int
+     */
+    final protected function getCurrentPage()
+    {
+        return $this->currentPage;
+    }
 }

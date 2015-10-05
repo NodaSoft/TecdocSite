@@ -1,4 +1,4 @@
 tmp/smarty/*
 vendor
 .idea
-vde
+dev/*
