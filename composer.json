@@ -10,6 +10,6 @@
   ],
   "require": {
     "smarty/smarty": "v3.1.19",
-    "nodasoft/abcp_api_client": "1.3"
+    "nodasoft/abcp_api_client": "3.2"
   }
 }

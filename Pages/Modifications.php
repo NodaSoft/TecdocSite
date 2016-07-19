@@ -22,7 +22,8 @@ class Modifications implements PageInterface
     public function getHtml()
     {
         $tecDocRestClient = new TecDoc();
-        $tecDocRestClient->setUserKey(TecDocApiConfig::USER_KEY)
+        $tecDocRestClient->setTecdocHost(TecDocApiConfig::HOST)
+            ->setUserKey(TecDocApiConfig::USER_KEY)
             ->setUserLogin(TecDocApiConfig::USER_LOGIN)
             ->setUserPsw(TecDocApiConfig::USER_PSW);
         $manufacturerId = $_GET['man'];
@@ -46,7 +47,8 @@ class Modifications implements PageInterface
     private static function getBreadcrumbs()
     {
         $tecDocRestClient = new TecDoc();
-        $tecDocRestClient->setUserKey(TecDocApiConfig::USER_KEY)
+        $tecDocRestClient->setTecdocHost(TecDocApiConfig::HOST)
+            ->setUserKey(TecDocApiConfig::USER_KEY)
             ->setUserLogin(TecDocApiConfig::USER_LOGIN)
             ->setUserPsw(TecDocApiConfig::USER_PSW);
         $breadcrumbs = array();

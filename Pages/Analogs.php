@@ -23,7 +23,8 @@ class Analogs implements PageInterface
     public function getHtml()
     {
         $tecDocRestClient = new TecDoc();
-        $tecDocRestClient->setUserKey(TecDocApiConfig::USER_KEY)
+        $tecDocRestClient->setTecdocHost(TecDocApiConfig::HOST)
+            ->setUserKey(TecDocApiConfig::USER_KEY)
             ->setUserLogin(TecDocApiConfig::USER_LOGIN)
             ->setUserPsw(TecDocApiConfig::USER_PSW);
         $number = $_GET['number'];

@@ -42,7 +42,7 @@
 		</tr>
 		<tr>
 			<td>Код двигателя</td>
-			<td>{$data.modification->motorCodes|implode:','}</td>
+			<td>{$data.modification->motorCodes}</td>
 		</tr>
 		<tr>
 			<td>Вид двигателя</td>

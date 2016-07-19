@@ -37,12 +37,13 @@ class Group implements PageInterface
     public function getHtml()
     {
         $tecDocRestClient = new TecDoc();
-        $tecDocRestClient->setUserKey(TecDocApiConfig::USER_KEY)
+        $tecDocRestClient->setTecdocHost(TecDocApiConfig::HOST)
+            ->setUserKey(TecDocApiConfig::USER_KEY)
             ->setUserLogin(TecDocApiConfig::USER_LOGIN)
             ->setUserPsw(TecDocApiConfig::USER_PSW);
         $modificationId = $_GET['modelVariant'];
         $categoryId = $_GET['group'];
-        $articles = $tecDocRestClient->getArticleSimplified($modificationId, $categoryId);
+        $articles = $tecDocRestClient->getArticleSimplified($modificationId, $categoryId, [], 0);
         $viewMode = isset($_GET['viewMode']) ? $_GET['viewMode'] : self::DEFAULT_VIEW_MODE;
         $itemsPerPage = isset($_GET['itemsPerPage']) && in_array((int)$_GET['itemsPerPage'], $this->itemsPerPage,
             true) ? (int)$_GET['itemsPerPage'] : current($this->itemsPerPage);
@@ -85,7 +86,8 @@ class Group implements PageInterface
     private static function getBreadcrumbs()
     {
         $tecDocRestClient = new TecDoc();
-        $tecDocRestClient->setUserKey(TecDocApiConfig::USER_KEY)
+        $tecDocRestClient->setTecdocHost(TecDocApiConfig::HOST)
+            ->setUserKey(TecDocApiConfig::USER_KEY)
             ->setUserLogin(TecDocApiConfig::USER_LOGIN)
             ->setUserPsw(TecDocApiConfig::USER_PSW);
         $modificationId = (int)$_GET['modelVariant'];
