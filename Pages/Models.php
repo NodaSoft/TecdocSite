@@ -1,7 +1,9 @@
 <?php
+
 namespace NS\TecDocSite\Pages;
 
 use NS\ABCPApi\RestApiClients\TecDoc;
+use NS\TecDocSite\Common\Helper;
 use NS\TecDocSite\Common\TecDocApiConfig;
 use NS\TecDocSite\Common\View;
 use NS\TecDocSite\Interfaces\PageInterface;
@@ -27,8 +29,7 @@ class Models implements PageInterface
             ->setUserLogin(TecDocApiConfig::USER_LOGIN)
             ->setUserPsw(TecDocApiConfig::USER_PSW);
         $manufacturerId = $_GET['man'];
-        $dataModels = $tecDocRestClient->getModels($manufacturerId);
-
+        $dataModels = $tecDocRestClient->getModels($manufacturerId, Helper::getCarId());
         $begin = 1990;
         $end = (int)date('Y');
         $step = 10;
@@ -65,6 +66,7 @@ class Models implements PageInterface
             'breadcrumbs' => self::getBreadcrumbs(),
             'selectedYear' => $selectedYear,
             'yearsFilter' => $yearsFilter,
+            'carType' => Helper::getCarId(),
             'man' => $manufacturerId
         );
         $templateData = array(

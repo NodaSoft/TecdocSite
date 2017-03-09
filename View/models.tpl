@@ -41,7 +41,7 @@
 			{foreach from=$data.models item=oneModel}
 				<li class="couple forSearch">
 					<div class="TecDocModel">
-						<a href="/?man={$data.man}&model={$oneModel->id}">{$oneModel->name}</a>
+						<a href="/?man={$data.man}&model={$oneModel->id}{if $data.carType}&carType={$data.carType}{/if}">{$oneModel->name}</a>
 					</div>
 					<div class="TecDocYear">
 						{if $oneModel->yearFrom}{$oneModel->yearFrom->format('m/Y')}{/if}

@@ -1,7 +1,9 @@
 <?php
+
 namespace NS\TecDocSite\Pages;
 
 use NS\ABCPApi\RestApiClients\TecDoc;
+use NS\TecDocSite\Common\Helper;
 use NS\TecDocSite\Common\TecDocApiConfig;
 use NS\TecDocSite\Common\View;
 use NS\TecDocSite\Interfaces\PageInterface;
@@ -27,14 +29,17 @@ class ModelVariant implements PageInterface
             ->setUserLogin(TecDocApiConfig::USER_LOGIN)
             ->setUserPsw(TecDocApiConfig::USER_PSW);
         $modificationId = $_GET['modelVariant'];
-        $tree = $tecDocRestClient->getModelVariant($modificationId);
+        $tree = $tecDocRestClient->getModelVariant($modificationId, Helper::getCarId());
+        $carTypeUrlText = Helper::getCarIdUrl();
         $contentTemplateData = array(
             'tree' => $tree,
+            'carType' => Helper::getCarId(),
             'breadcrumbs' => self::getBreadcrumbs(),
-            'url' => "/?man={$_REQUEST['man']}&model={$_REQUEST['model']}&modelVariant={$_REQUEST['modelVariant']}&group="
+            'url' => "/?man={$_REQUEST['man']}&model={$_REQUEST['model']}&modelVariant={$_REQUEST['modelVariant']}{$carTypeUrlText}&group="
         );
         $content = View::deploy('tree.tpl', $contentTemplateData);
         $templateData = array('content' => $content);
+
         return View::deploy('index.tpl', $templateData);
     }
 
@@ -52,14 +57,15 @@ class ModelVariant implements PageInterface
             ->setUserPsw(TecDocApiConfig::USER_PSW);
         $modificationId = (int)$_GET['modelVariant'];
         $modification = $tecDocRestClient->getModificationById($modificationId);
+        $carTypeUrlText = Helper::getCarIdUrl();
         $breadcrumbs = array(
             array(
                 'name' => $modification->manufacturerName,
-                'url' => "?man={$modification->manufacturerId}"
+                'url' => "?man={$modification->manufacturerId}{$carTypeUrlText}"
             ),
             array(
                 'name' => $modification->modelName,
-                'url' => "?man={$modification->manufacturerId}&model={$modification->modelId}"
+                'url' => "?man={$modification->manufacturerId}&model={$modification->modelId}{$carTypeUrlText}"
             ),
             array(
                 'name' => $modification->name
@@ -68,6 +74,7 @@ class ModelVariant implements PageInterface
         $templateData = array(
             'breadcrumbs' => $breadcrumbs
         );
+
         return View::deploy('common/breadcumbs.tpl', $templateData);
     }
 }

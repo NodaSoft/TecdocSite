@@ -1,8 +1,10 @@
 <?php
+
 namespace NS\TecDocSite\Pages;
 
 use NS\ABCPApi\RestApiClients\TecDoc;
 use NS\ABCPApi\TecDocEntities\ModelVariant;
+use NS\TecDocSite\Common\Helper;
 use NS\TecDocSite\Common\Paginator;
 use NS\TecDocSite\Common\PaginatorOptions;
 use NS\TecDocSite\Common\TecDocApiConfig;
@@ -93,7 +95,7 @@ class Group implements PageInterface
         $modificationId = (int)$_GET['modelVariant'];
         $selectedGroupId = (int)$_GET['group'];
         $modification = $tecDocRestClient->getModificationById($modificationId);
-        $modelVariants = $tecDocRestClient->getModelVariant($modificationId);
+        $modelVariants = $tecDocRestClient->getModelVariant($modificationId, Helper::getCarId());
         $modelVariant = new ModelVariant();
         if (is_array($modelVariants)) {
             foreach ($modelVariants as $oneModelVariant) {
@@ -103,18 +105,19 @@ class Group implements PageInterface
                 }
             }
         }
+        $carTypeUrlText = Helper::getCarIdUrl();
         $breadcrumbs = array(
             array(
                 'name' => $modification->manufacturerName,
-                'url' => "?man={$modification->manufacturerId}"
+                'url' => "?man={$modification->manufacturerId}{$carTypeUrlText}"
             ),
             array(
                 'name' => $modification->modelName,
-                'url' => "?man={$modification->manufacturerId}&model={$modification->modelId}"
+                'url' => "?man={$modification->manufacturerId}&model={$modification->modelId}{$carTypeUrlText}"
             ),
             array(
                 'name' => $modification->name,
-                'url' => "?man={$modification->manufacturerId}&model={$modification->modelId}&modelVariant={$modification->id}"
+                'url' => "?man={$modification->manufacturerId}&model={$modification->modelId}&modelVariant={$modification->id}{$carTypeUrlText}"
             ),
             array(
                 'name' => $modelVariant->name

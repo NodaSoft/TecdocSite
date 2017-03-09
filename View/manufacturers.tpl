@@ -24,7 +24,7 @@
 					<ul>
 						{foreach from=$manufacturer item=man}
 							<li class="liSearch">
-								<a href="/?man={$man->id}" class="forSearch">{$man->name}</a>
+								<a href="/?man={$man->id}{if $data.carType}&carType={$data.carType}{/if}" class="forSearch">{$man->name}</a>
 							</li>
 						{/foreach}
 					</ul>

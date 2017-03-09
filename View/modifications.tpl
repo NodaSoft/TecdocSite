@@ -24,7 +24,7 @@
 			</td>
 			{*Модель*}
 			<td>
-				<a href="/?man={$smarty.get.man}&model={$smarty.get.model}&modelVariant={$modification->id}">{$modification->name}</a>
+				<a href="/?man={$smarty.get.man}&model={$smarty.get.model}&modelVariant={$modification->id}{if $data.carType}&carType={$data.carType}{/if}">{$modification->name}</a>
 			</td>
 			{*Год выпуска*}
 			<td>{if $modification->yearFrom}{$modification->yearFrom->format('m/Y')}{/if}
