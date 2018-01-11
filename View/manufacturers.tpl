@@ -9,7 +9,6 @@
 		<li {if empty($data.carType) && empty($data.selectedLetter)}class="active"{/if}><a href="/">Все</a></li>
 		<li {if $data.carType == 1}class="active"{/if}><a href="/?carType=1">Легковые</a></li>
 		<li {if $data.carType == 2}class="active"{/if}><a href="/?carType=2">Грузовые</a></li>
-		<li {if $data.carType == 3}class="active"{/if}><a href="/?carType=3">Малотоннажные грузовые</a></li>
 		{foreach item="item" from=$data.manufacturers key="letter"}
 			<li{if $data.selectedLetter == $letter} class="active"{/if}><a href="/?letter={$letter}">{$letter}</a></li>
 		{/foreach}

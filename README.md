@@ -8,7 +8,7 @@
 
 Требования:
 
-```php 5.3.10 - 7.0```
+```php 5.5 - 7.2```
 
 #### Установка: 
 Распаковать или клонировать репозиторий в корень сайта.
@@ -30,13 +30,13 @@ php composer.phar install
 #### Запуск с использованием [docker](http://docker.com), [docker-compose](http://docs.docker.com/compose/)
 
 ```bash
-#для php 7.0
+#для php 7.2
 #установка зависимостей
-docker-compose run web70 php composer.phar install
+docker-compose run web72 php composer.phar install
 #запуск контейнера с катаолгом
-docker-compose up -d web70
+docker-compose up -d web72
 ```
-каталог будет доступен по адресу ```http://localhost:8070``` так же доступны другие версии php в контейнерах `web55` `web56` на портах `8055` `8056` соответвенно
+каталог будет доступен по адресу ```http://localhost:8072``` так же доступны другие версии php в контейнерах `web55` `web56` на портах `8055` `8056` соответвенно
 
 
 ### Дополнительная информация
@@ -53,7 +53,7 @@ php composer.phar install
 ```
 или для [docker-compose](http://docs.docker.com/compose/) 
 ```bash
-docker-compose up -d web70
+docker-compose up -d web72
 ```
 ###### Ошибка авторизации
 

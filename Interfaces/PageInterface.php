@@ -1,4 +1,5 @@
 <?php
+
 namespace NS\TecDocSite\Interfaces;
 
 /**
@@ -12,7 +13,7 @@ interface PageInterface
     /**
      * Возвращает сгенерированный html код страницы
      *
-     * @return mixed
+     * @return string
      */
     public function getHtml();
 }

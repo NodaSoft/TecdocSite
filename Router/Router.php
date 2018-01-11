@@ -1,8 +1,8 @@
 <?php
+
 namespace NS\TecDocSite\Router;
 
 use NS\TecDocSite\Interfaces\PageInterface;
-use NS\TecDocSite\Pages\Adaptability;
 use NS\TecDocSite\Pages\Analogs;
 use NS\TecDocSite\Pages\ArticleInfo;
 use NS\TecDocSite\Pages\FullInfoModelVariant;
@@ -41,10 +41,6 @@ class Router
             case isset($data['analogs']) && isset($data['number']):
                 $pageClass = new Analogs();
                 break;
-            /*Применимость*/
-            case isset($data['adaptability']) && isset($data['articleId']):
-                $pageClass = new Adaptability();
-                break;
             /*Детализированная информация по запчасти*/
             case isset($data['articleInfo']) && isset($data['articleId']):
                 $pageClass = new ArticleInfo();
@@ -69,6 +65,7 @@ class Router
             default:
                 $pageClass = new Index();
         }
+
         return $pageClass;
     }
 }

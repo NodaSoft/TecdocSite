@@ -1,5 +1,6 @@
 {
-  "name": "NodaSoft/TecDocSite",
+  "name": "nodasoft/tecdoc.site",
+  "license": "GNU GPL",
   "description": "Пример сайта tecdoc API платформы ABCP",
   "minimum-stability": "dev",
   "authors": [
@@ -9,7 +10,7 @@
     }
   ],
   "require": {
-    "smarty/smarty": "v3.1.19",
-    "nodasoft/abcp_api_client": "3.2"
+    "smarty/smarty": "v3.1.30",
+    "nodasoft/abcp_api_client": "3.5"
   }
 }

@@ -20,6 +20,7 @@ class Models implements PageInterface
      * Возвращает html страницы с моделями
      *
      * @return string
+     * @throws \Exception
      */
     public function getHtml()
     {
@@ -34,15 +35,15 @@ class Models implements PageInterface
         $end = (int)date('Y');
         $step = 10;
         $selectedYear = isset($_GET['yearFilter']) && $_GET['yearFilter'] !== 'all' ? (int)$_GET['yearFilter'] : -1;
-        $yearsFilter = array();
-        $outModels = array();
+        $yearsFilter = [];
+        $outModels = [];
         for ($i = $begin - $step; $i < $end; $i += $step) {
-            $yearsFilter[] = array(
+            $yearsFilter[] = [
                 'begin' => $i < $begin ? 0 : $i,
                 'end' => $i >= $end - $step ? $end : $i + $step,
                 'endView' => $i >= $end - $step ? '' : $i + $step,
                 'isVisible' => false
-            );
+            ];
         }
         foreach ($dataModels as $oneModel) {
             $isModelVisible = $selectedYear === -1;
@@ -61,17 +62,17 @@ class Models implements PageInterface
             }
         }
 
-        $contentTemplateData = array(
+        $contentTemplateData = [
             'models' => $outModels,
             'breadcrumbs' => self::getBreadcrumbs(),
             'selectedYear' => $selectedYear,
             'yearsFilter' => $yearsFilter,
             'carType' => Helper::getCarId(),
             'man' => $manufacturerId
-        );
-        $templateData = array(
+        ];
+        $templateData = [
             'content' => View::deploy('models.tpl', $contentTemplateData)
-        );
+        ];
 
         return View::deploy('index.tpl', $templateData);
     }
@@ -80,6 +81,8 @@ class Models implements PageInterface
      * Возвращает html код с хлебными крошками
      *
      * @return string
+     * @throws \Exception
+     * @throws \SmartyException
      */
     private static function getBreadcrumbs()
     {
@@ -88,21 +91,21 @@ class Models implements PageInterface
             ->setUserKey(TecDocApiConfig::USER_KEY)
             ->setUserLogin(TecDocApiConfig::USER_LOGIN)
             ->setUserPsw(TecDocApiConfig::USER_PSW);
-        $breadcrumbs = array();
+        $breadcrumbs = [];
         $manufacturerId = (int)$_GET['man'];
-        $manufacturers = $tecDocRestClient->getManufacturers();
+        $manufacturers = $tecDocRestClient->getManufacturers(Helper::getCarId());
         if (is_array($manufacturers)) {
             foreach ($manufacturers as $oneManufacturer) {
                 if ($oneManufacturer->id === $manufacturerId) {
-                    $breadcrumbs[] = array(
+                    $breadcrumbs[] = [
                         'name' => $oneManufacturer->name
-                    );
+                    ];
                 }
             }
         }
-        $templateData = array(
+        $templateData = [
             'breadcrumbs' => $breadcrumbs
-        );
+        ];
 
         return View::deploy('common/breadcumbs.tpl', $templateData);
     }

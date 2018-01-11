@@ -18,6 +18,7 @@ class FullInfoModelVariant implements PageInterface
      * Возвращает html страницы с модификациями
      *
      * @return string
+     * @throws \Exception
      */
     public function getHtml()
     {

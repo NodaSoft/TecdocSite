@@ -24,7 +24,7 @@ class Group implements PageInterface
      *
      * @var int[]
      */
-    private $itemsPerPage = array(20, 40, 100);
+    private $itemsPerPage = [20, 40, 100];
 
     /**
      * Дефолтный вид отображения плитка
@@ -35,6 +35,7 @@ class Group implements PageInterface
      * Возвращает html дерева категорий для модификации
      *
      * @return string
+     * @throws \Exception
      */
     public function getHtml()
     {
@@ -45,26 +46,26 @@ class Group implements PageInterface
             ->setUserPsw(TecDocApiConfig::USER_PSW);
         $modificationId = $_GET['modelVariant'];
         $categoryId = $_GET['group'];
-        $articles = $tecDocRestClient->getArticleSimplified($modificationId, $categoryId, [], 0);
+        $articles = $tecDocRestClient->getArticleSimplified($modificationId, $categoryId, '', Helper::getCarId());
         $viewMode = isset($_GET['viewMode']) ? $_GET['viewMode'] : self::DEFAULT_VIEW_MODE;
         $itemsPerPage = isset($_GET['itemsPerPage']) && in_array((int)$_GET['itemsPerPage'], $this->itemsPerPage,
             true) ? (int)$_GET['itemsPerPage'] : current($this->itemsPerPage);
         $totalArticles = count($articles);
         $start = isset($_GET['start']) && is_numeric($_GET['start']) && $_GET['start'] < $totalArticles && $_GET['start'] > 0 && $_GET['itemsPerPage'] < $totalArticles ? $_GET['start'] : 0;
         $articles = array_slice($articles, $start, $itemsPerPage);
-        $baseUrlArray = array(
+        $baseUrlArray = [
             'man' => $_GET['man'],
             'model' => $_GET['model'],
             'modelVariant' => $_GET['modelVariant'],
             'group' => $_GET['group']
-        );
+        ];
         $baseUrl = http_build_query($baseUrlArray);
         $paginatorOption = new PaginatorOptions();
         $paginatorOption->startRecord = $start;
         $paginatorOption->recordsPageCount = $itemsPerPage;
         $paginatorOption->totalRecords = $totalArticles;
         $paginator = new Paginator($paginatorOption);
-        $contentTemplateData = array(
+        $contentTemplateData = [
             'breadcrumbs' => self::getBreadcrumbs(),
             'itemsPerPageValues' => $this->itemsPerPage,
             'selectedItemsPerPage' => $itemsPerPage,
@@ -73,9 +74,9 @@ class Group implements PageInterface
             'start' => $start,
             'paginator' => isset($paginator) ? $paginator->deploy() : '',
             'articles' => $articles
-        );
+        ];
         $content = View::deploy('group.details.tpl', $contentTemplateData);
-        $templateData = array('content' => $content);
+        $templateData = ['content' => $content];
 
         return View::deploy('index.tpl', $templateData);
     }
@@ -84,6 +85,7 @@ class Group implements PageInterface
      * Возвращает html код с хлебными крошками
      *
      * @return string
+     * @throws \Exception
      */
     private static function getBreadcrumbs()
     {
@@ -106,26 +108,26 @@ class Group implements PageInterface
             }
         }
         $carTypeUrlText = Helper::getCarIdUrl();
-        $breadcrumbs = array(
-            array(
+        $breadcrumbs = [
+            [
                 'name' => $modification->manufacturerName,
                 'url' => "?man={$modification->manufacturerId}{$carTypeUrlText}"
-            ),
-            array(
+            ],
+            [
                 'name' => $modification->modelName,
                 'url' => "?man={$modification->manufacturerId}&model={$modification->modelId}{$carTypeUrlText}"
-            ),
-            array(
+            ],
+            [
                 'name' => $modification->name,
                 'url' => "?man={$modification->manufacturerId}&model={$modification->modelId}&modelVariant={$modification->id}{$carTypeUrlText}"
-            ),
-            array(
+            ],
+            [
                 'name' => $modelVariant->name
-            )
-        );
-        $templateData = array(
+            ]
+        ];
+        $templateData = [
             'breadcrumbs' => $breadcrumbs
-        );
+        ];
 
         return View::deploy('common/breadcumbs.tpl', $templateData);
     }

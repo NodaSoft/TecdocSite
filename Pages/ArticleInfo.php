@@ -18,6 +18,7 @@ class ArticleInfo implements PageInterface
      * Возвращает html страницы с информацией о детали
      *
      * @return string
+     * @throws \Exception
      */
     public function getHtml()
     {

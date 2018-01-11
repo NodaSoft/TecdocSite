@@ -20,6 +20,8 @@ class Index implements PageInterface
      * Возвращает html страницы
      *
      * @return string
+     * @throws \Exception
+     * @throws \SmartyException
      */
     public function getHtml()
     {
@@ -30,19 +32,19 @@ class Index implements PageInterface
             ->setUserPsw(TecDocApiConfig::USER_PSW);
         $selectedLetter = !empty($_GET['letter']) ? $_GET['letter'] : '';
         $manufacturers = $tecDocRestClient->getManufacturers(Helper::getCarId());
-        $manufacturersTemplateData = array();
+        $manufacturersTemplateData = [];
         foreach ($manufacturers as $oneManufacturer) {
             $firstLetter = substr($oneManufacturer->name, 0, 1);
             $manufacturersTemplateData[$firstLetter][] = $oneManufacturer;
         }
-        $contentTemplateData = array(
+        $contentTemplateData = [
             'manufacturers' => $manufacturersTemplateData,
             'carType' => Helper::getCarId(),
             'breadcrumbs' => self::getBreadcrumbs(),
             'selectedLetter' => $selectedLetter
-        );
+        ];
         $content = View::deploy('manufacturers.tpl', $contentTemplateData);
-        $templateData = array('content' => $content);
+        $templateData = ['content' => $content];
 
         return View::deploy('index.tpl', $templateData);
     }
@@ -51,12 +53,14 @@ class Index implements PageInterface
      * Возвращает html код с хлебными крошками
      *
      * @return string
+     * @throws \Exception
+     * @throws \SmartyException
      */
     private static function getBreadcrumbs()
     {
-        $templateData = array(
-            'breadcrumbs' => array()
-        );
+        $templateData = [
+            'breadcrumbs' => []
+        ];
 
         return View::deploy('common/breadcumbs.tpl', $templateData);
     }

@@ -21,7 +21,6 @@ class Helper
         CarType::ALL,
         CarType::CARS,
         CarType::TRUCKS,
-        CarType::LIGHT_TRUCKS,
     ];
 
     /**
@@ -31,8 +30,9 @@ class Helper
      */
     public static function getCarId()
     {
-        return isset($_GET['carType']) && in_array($_GET['carType'],
-            self::$availableCarTypes) ? (int)$_GET['carType'] : 0;
+        $carType = (int)$_GET['carType'];
+
+        return in_array($carType, self::$availableCarTypes) ? $carType : CarType::ALL;
     }
 
     /**
@@ -42,8 +42,7 @@ class Helper
      */
     public static function getCarIdUrl()
     {
-        return isset($_GET['carType']) && in_array($_GET['carType'],
-            self::$availableCarTypes) ? "&carType={$_GET['carType']}" : '';
+        return isset($_GET['carType']) ? sprintf("&carType=%d", self::getCarId()) : '';
     }
 
 }

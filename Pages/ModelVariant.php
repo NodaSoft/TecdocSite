@@ -20,6 +20,7 @@ class ModelVariant implements PageInterface
      * Возвращает html список деталей для выбранной категории
      *
      * @return string
+     * @throws \Exception
      */
     public function getHtml()
     {
@@ -47,6 +48,7 @@ class ModelVariant implements PageInterface
      * Возвращает html код с хлебными крошками
      *
      * @return string
+     * @throws \Exception
      */
     private static function getBreadcrumbs()
     {

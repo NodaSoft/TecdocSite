@@ -1,4 +1,5 @@
 <?php
+
 namespace NS\TecDocSite\Pages;
 
 use NS\ABCPApi\RestApiClients\TecDoc;
@@ -19,6 +20,7 @@ class Analogs implements PageInterface
      * Возвращает html страницы с аналогами
      *
      * @return string
+     * @throws \Exception
      */
     public function getHtml()
     {
@@ -29,11 +31,12 @@ class Analogs implements PageInterface
             ->setUserPsw(TecDocApiConfig::USER_PSW);
         $number = $_GET['number'];
         $analogs = $tecDocRestClient->getAnalogs($number, AnalogTypes::ANY);
-        $contentTemplateData = array(
+        $contentTemplateData = [
             'analogs' => $analogs
-        );
+        ];
         $content = View::deploy('analogs.tpl', $contentTemplateData);
-        $templateData = array('content' => $content);
+        $templateData = ['content' => $content];
+
         return View::deploy('index.tpl', $templateData);
     }
 }

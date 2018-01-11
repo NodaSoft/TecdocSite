@@ -24,3 +24,12 @@ web70:
     - "8070:8000"
   volumes:
     - .:/var/www
+
+web72:
+  image: nodasoft/web72
+  working_dir: /var/www
+  command: php -S 0.0.0.0:8000 -t /var/www
+  ports:
+    - "8072:8000"
+  volumes:
+    - .:/var/www

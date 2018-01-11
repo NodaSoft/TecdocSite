@@ -20,6 +20,7 @@ class Modifications implements PageInterface
      * Возвращает html страницы с модификациями
      *
      * @return string
+     * @throws \Exception
      */
     public function getHtml()
     {
@@ -31,14 +32,14 @@ class Modifications implements PageInterface
         $manufacturerId = $_GET['man'];
         $modelId = $_GET['model'];
         $modifications = $tecDocRestClient->getModifications($manufacturerId, $modelId, Helper::getCarId());
-        $contentTemplateData = array(
+        $contentTemplateData = [
             'modifications' => $modifications,
             'breadcrumbs' => self::getBreadcrumbs(),
             'carType' => Helper::getCarId(),
             'man' => $manufacturerId
-        );
+        ];
         $content = View::deploy('modifications.tpl', $contentTemplateData);
-        $templateData = array('content' => $content);
+        $templateData = ['content' => $content];
 
         return View::deploy('index.tpl', $templateData);
     }
@@ -47,6 +48,7 @@ class Modifications implements PageInterface
      * Возвращает html код с хлебными крошками
      *
      * @return string
+     * @throws \Exception
      */
     private static function getBreadcrumbs()
     {
@@ -55,34 +57,34 @@ class Modifications implements PageInterface
             ->setUserKey(TecDocApiConfig::USER_KEY)
             ->setUserLogin(TecDocApiConfig::USER_LOGIN)
             ->setUserPsw(TecDocApiConfig::USER_PSW);
-        $breadcrumbs = array();
+        $breadcrumbs = [];
         $manufacturerId = (int)$_GET['man'];
-        $manufacturers = $tecDocRestClient->getManufacturers();
+        $manufacturers = $tecDocRestClient->getManufacturers(Helper::getCarId());
         if (is_array($manufacturers)) {
             $carTypeUrlText = Helper::getCarIdUrl();
             foreach ($manufacturers as $oneManufacturer) {
                 if ($oneManufacturer->id === $manufacturerId) {
-                    $breadcrumbs[] = array(
+                    $breadcrumbs[] = [
                         'name' => $oneManufacturer->name,
                         'url' => "?man={$manufacturerId}{$carTypeUrlText}"
-                    );
+                    ];
                 }
             }
         }
-        $models = $tecDocRestClient->getModels($manufacturerId);
+        $models = $tecDocRestClient->getModels($manufacturerId, Helper::getCarId());
         $modelId = (int)$_GET['model'];
         if (is_array($models)) {
             foreach ($models as $oneModel) {
                 if ($oneModel->id === $modelId) {
-                    $breadcrumbs[] = array(
+                    $breadcrumbs[] = [
                         'name' => $oneModel->name
-                    );
+                    ];
                 }
             }
         }
-        $templateData = array(
+        $templateData = [
             'breadcrumbs' => $breadcrumbs
-        );
+        ];
 
         return View::deploy('common/breadcumbs.tpl', $templateData);
     }

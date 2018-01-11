@@ -1,4 +1,5 @@
 <?php
+
 namespace NS\TecDocSite\Common;
 
 /**
@@ -24,7 +25,7 @@ class Paginator
      *
      * @var array
      */
-    private $displayedPages = array();
+    private $displayedPages = [];
     /**
      * Текущая страница
      *
@@ -61,6 +62,8 @@ class Paginator
      * Возвращает интерфейс пагинатора в виде html
      *
      * @return string
+     * @throws \Exception
+     * @throws \SmartyException
      */
     public function deploy()
     {
@@ -72,21 +75,22 @@ class Paginator
             $parsedUrl = parse_url($url);
             parse_str($parsedUrl['query'], $urlQueryArray);
             unset($urlQueryArray[$options->argName]);
-            $newUrlData = array();
+            $newUrlData = [];
             foreach ($urlQueryArray as $k => $oneUrlQueryItem) {
                 $newUrlData[] = "$k=$oneUrlQueryItem";
             }
             $url = $newUrlData ? '?' . implode('&', $newUrlData) : '';
-            $dataTemplate = array(
+            $dataTemplate = [
                 'displayedPages' => $this->getDisplayedPages(),
                 'options' => $options,
                 'argName' => $options->argName,
                 'url' => $url,
                 'currentPage' => $this->getCurrentPage(),
                 'pagesCount' => $this->getPagesCount()
-            );
+            ];
             $page = View::deploy($options->template, $dataTemplate);
         }
+
         return $page;
     }
 

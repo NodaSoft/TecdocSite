@@ -1,4 +1,5 @@
 <?php
+
 namespace NS\TecDocSite\Common;
 
 /**
@@ -23,11 +24,14 @@ class View
      * @param string $templateName
      * @param array $templateData
      * @return string
+     * @throws \Exception
+     * @throws \SmartyException
      */
-    public static function deploy($templateName, $templateData = array())
+    public static function deploy($templateName, $templateData = [])
     {
         $smarty = self::getSmarty();
         $smarty->assign("data", $templateData);
+
         return self::$smarty->fetch($templateName);
     }
 
@@ -45,6 +49,7 @@ class View
             self::$smarty->setCompileDir($compiledPath);
             self::$smarty->setCacheDir($cachedPath);
         }
+
         return self::$smarty;
     }
 
@@ -69,6 +74,7 @@ class View
         if (!file_exists($cachedPath)) {
             mkdir($cachedPath, 0777, true);
         }
-        return array($compiledPath, $cachedPath);
+
+        return [$compiledPath, $cachedPath];
     }
 }
