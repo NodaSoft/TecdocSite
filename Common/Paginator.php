@@ -108,16 +108,16 @@ class Paginator
         $this->currentPage = floor($startRecord / $options->recordsPageCount) + 1;
         $this->pagesCount = floor($maxRecords / $options->recordsPageCount) + 1;
         $leftEdgePage = $this->currentPage - floor($options->displayedPagesCount / 2);
-        if ($leftEdgePage <= 1) {
+        if ($leftEdgePage < 1) {
             $leftEdgePage = 1;
         }
         $rightEdgePage = $leftEdgePage + $options->displayedPagesCount - 1;
-        if ($rightEdgePage >= $this->pagesCount) {
+        if ($rightEdgePage > $this->pagesCount) {
             $rightEdgePage = $this->pagesCount;
         }
         if (($rightEdgePage - $leftEdgePage) < $options->displayedPagesCount) {
             $leftEdgePage = $rightEdgePage - $options->displayedPagesCount + 1;
-            if ($leftEdgePage <= 1) {
+            if ($leftEdgePage < 1) {
                 $leftEdgePage = 1;
             }
         }

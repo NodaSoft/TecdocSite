@@ -43,9 +43,9 @@ class PaginatorOptions
     /**
      * Текущая ссылка
      *
-     * @var null
+     * @var string|null
      */
-    public $url;
+    public $url = null;
     /**
      * Имя шаблона для пагинатора
      *
